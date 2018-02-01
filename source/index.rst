@@ -11,5 +11,6 @@ The documentation is maintained on Github: https://github.com/osism/documentatio
 .. toctree::
    :maxdepth: 2
 
+   generic
    glance
    appendix
