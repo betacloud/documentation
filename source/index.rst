@@ -7,7 +7,7 @@ The Betacloud is a testbed environment of Betacloud Solutions GmbH. Further deta
 It is completely managed with the OpenStack Infrastructure & Service Manager (OSISM). OSISM is a Ansible & Docker based deployment framework for managing OpenStack, Ceph, and necessary services. Further details about OSISM can be found on https://osism.io.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    generic
    glance
