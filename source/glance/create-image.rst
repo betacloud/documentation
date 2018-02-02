@@ -12,7 +12,7 @@ Store the image file temporarily under ``/opt/configuration/environments/opensta
 
 The image must be in raw format. A conversion can be done in advance with ``qemu-img``.
 
-.. code-block:: shell
+.. code-block:: none
 
    $ qemu-img convert -f qcow2 -O raw \
        zesty-server-cloudimg-amd64.img \
@@ -20,7 +20,7 @@ The image must be in raw format. A conversion can be done in advance with ``qemu
 
 The import is now done with the ``openstack`` client. Then remove the temporary files.
 
-.. code-block:: shell
+.. code-block:: none
 
    $ openstack --os-cloud service image create \
        --public \

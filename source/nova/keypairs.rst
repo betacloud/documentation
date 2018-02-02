@@ -21,7 +21,7 @@ To specify several keypairs when creating an instance, ``cloud-config`` can be u
 
 * Create an instance ``testing``.
 
-.. code-block:: shell
+.. code-block:: none
 
    $ openstack --os-cloud PROJECT server create \
        --image "Ubuntu 16.04 (Xenial Xerus)" \
@@ -31,7 +31,7 @@ To specify several keypairs when creating an instance, ``cloud-config`` can be u
 
 * When the instance is initialized, the keys are now assigned.
 
-.. code-block:: shell
+.. code-block:: none
 
    $ openstack --os-cloud PROJECT console log show testing
    [...]
