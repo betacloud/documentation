@@ -1,0 +1,55 @@
+========
+Keypairs
+========
+
+Assignment of multiple keys
+===========================
+
+OpenStack allows to specify only one SSH key when instance is created.
+To specify several keypairs when creating an instance, ``cloud-config`` can be used.
+
+* Create a file ``userdata.sample``.
+
+.. code-block:: yaml
+
+   #cloud-config
+   ssh_authorized_keys:
+     - ssh-rsa ... 001
+     - ssh-rsa ... 002
+     - ssh-rsa ... 003
+     - ssh-rsa ... 004
+
+* Create an instance ``testing``.
+
+.. code-block:: shell
+
+   $ openstack --os-cloud PROJECT server create \
+       --image "Ubuntu 16.04 (Xenial Xerus)" \
+       --flavor 1C-1GB-10GB \
+       --user-data userdata.sample \
+       testing
+
+* When the instance is initialized, the keys are now assigned.
+
+.. code-block:: shell
+
+   $ openstack --os-cloud PROJECT console log show testing
+   [...]
+   +++++Authorized keys from /home/ubuntu/.ssh/authorized_keys for user ubuntu++++++
+   ci-info: +---------+-------------------------------------------------+---------+---------+
+   ci-info: | Keytype |                Fingerprint (md5)                | Options | Comment |
+   ci-info: +---------+-------------------------------------------------+---------+---------+
+   ci-info: | ssh-rsa | e6:67:2b:9a:b3:50:33:53:28:f7:92:1c:27:13:92:0e |    -    |   003   |
+   ci-info: | ssh-rsa | 47:3d:4a:5e:9f:07:75:ae:18:91:48:77:a7:6b:4f:f7 |    -    |   002   |
+   ci-info: | ssh-rsa | a0:42:ee:70:ad:97:f2:59:9a:0a:70:11:02:99:8b:d0 |    -    |   001   |
+   ci-info: | ssh-rsa | 31:2b:c2:2c:c9:cc:27:38:c9:90:28:df:82:c4:1f:eb |    -    |   004   |
+   ci-info: +---------+-------------------------------------------------+---------+---------+
+   [...]
+
+References
+----------
+
+* https://bugs.launchpad.net/nova/+bug/1499751 (OpenStack (nova boot exactly) allows only one SSH key)
+* https://docs.openstack.org/ocata/user-guide/cli-provide-user-data-to-instances.html
+* http://cloudinit.readthedocs.io/en/latest/topics/examples.html#configure-instances-ssh-keys
+* http://cloudinit.readthedocs.io/en/latest/topics/modules.html#ssh
