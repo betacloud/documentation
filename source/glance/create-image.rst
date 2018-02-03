@@ -28,6 +28,7 @@ The import is now done with the ``openstack`` client. Then remove the temporary 
        --disk-format raw \
        --property hw_disk_bus=scsi \
        --property hw_scsi_model=virtio-scsi \
+       --property hw_vif_multiqueue_enabled=true \
        --property os_type=linux \
        --property os_version=17.04 \
        --file /configuration/zesty-server-cloudimg-amd64.raw \
