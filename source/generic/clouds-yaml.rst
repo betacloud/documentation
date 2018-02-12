@@ -45,6 +45,12 @@ The vendor preset ``betacloud`` has recently been added to ``os-client-config`` 
        identity_api_version: 3
        volume_api_version: 3
 
+.. note::
+
+   Apart from the OpenStackClient, other clients do not yet support clouds.yaml comprehensively.
+
+   https://specs.openstack.org/openstack/openstack-specs/specs/clouds-yaml-support.html
+
 References
 ==========
 
