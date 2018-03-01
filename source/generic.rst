@@ -7,3 +7,4 @@ Generic
 
    generic/openstackclient
    generic/clouds-yaml
+   generic/images

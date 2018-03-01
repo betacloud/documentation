@@ -31,6 +31,12 @@ If adjusting the size with ``virt-resize`` is not an option, the following appro
    2264ffb1-78f0-4f2f-b027-86af353cc54d
    $ qemu-img convert -f qcow2 -O raw testing.qcow2 rbd:images/$IMAGE_ID
 
+Of course, the image can already be in RAW format.
+
+.. code-block:: shell
+
+   $ qemu-img convert -f raw -O raw testing.raw rbd:images/$IMAGE_ID
+
 .. code-block:: shell
 
    $ rbd info images/$IMAGE_ID
@@ -92,6 +98,35 @@ If adjusting the size with ``virt-resize`` is not an option, the following appro
 .. todo::
 
    Document use of ``--property``.
+
+
+
+openstack --os-cloud service image create        --public --container-format bare        --disk-format raw        --id be2c9e61-1440-4c85-80a6-9ee5984ac7ea testing
+
+dragon@10-11:~$ openstack --os-cloud service image create        --public --container-format bare        --disk-format raw        --id be2c9e61-1440-4c85-80a6-9ee5984ac7ea testing+------------------+------------------------------------------------------+
+| Field            | Value                                                |
++------------------+------------------------------------------------------+
+| checksum         | None                                                 |
+| container_format | bare                                                 |
+| created_at       | 2018-02-07T20:30:44Z                                 |
+| disk_format      | raw                                                  |
+| file             | /v2/images/be2c9e61-1440-4c85-80a6-9ee5984ac7ea/file |
+| id               | be2c9e61-1440-4c85-80a6-9ee5984ac7ea                 |
+| min_disk         | 0                                                    |
+| min_ram          | 0                                                    |
+| name             | testing                                              |
+| owner            | de8299637be6486f9dd0d51c1f544a71                     |
+| properties       | locations='[]'                                       |
+| protected        | False                                                |
+| schema           | /v2/schemas/image                                    |
+| size             | None                                                 |
+| status           | queued                                               |
+| tags             |                                                      |
+| updated_at       | 2018-02-07T20:30:44Z                                 |
+| virtual_size     | None                                                 |
+| visibility       | public                                               |
++------------------+------------------------------------------------------+
+
 
 References
 ==========
