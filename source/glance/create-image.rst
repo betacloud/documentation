@@ -20,6 +20,8 @@ The image must be in raw format. A conversion can be done in advance with ``qemu
 
 The import is now done with the ``openstack`` client. Then remove the temporary files.
 
+Possible values for e.g. ``os_distro`` can be found on https://docs.openstack.org/python-glanceclient/latest/cli/property-keys.html.
+
 .. code-block:: none
 
    $ openstack --os-cloud service image create \
@@ -29,7 +31,7 @@ The import is now done with the ``openstack`` client. Then remove the temporary 
        --property hw_disk_bus=scsi \
        --property hw_scsi_model=virtio-scsi \
        --property hw_vif_multiqueue_enabled=true \
-       --property os_type=linux \
+       --property os_distro=ubuntu \
        --property os_version=17.04 \
        --file /configuration/zesty-server-cloudimg-amd64.raw \
        "Ubuntu 17.04 (Zesty Zapus)"
