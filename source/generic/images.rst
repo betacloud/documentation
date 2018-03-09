@@ -16,7 +16,7 @@ Following is a list of vendor images with associated login users.
 +------------+----------------+
 | Debian     | debian         |
 +------------+----------------+
-| Fedora     | fedor          |
+| Fedora     | fedora         |
 +------------+----------------+
 | RedHat     | cloud-user     |
 +------------+----------------+
