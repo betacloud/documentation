@@ -25,5 +25,5 @@ after_success:
 notifications:
   irc:
     channels:
-      - "irc.freenode.org#osism"
+      - "irc.freenode.org#betacloud"
     use_notice: true
