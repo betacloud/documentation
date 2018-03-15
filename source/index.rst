@@ -12,6 +12,7 @@ It is completely managed with the OpenStack Infrastructure & Service Manager (OS
    generic
    glance
    nova
+   integration
    operations
    appendix
 
