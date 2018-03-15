@@ -27,6 +27,10 @@ To use access ``PROJECT`` with the OpenStack client, it is called with ``opensta
          project_domain_name: default
          user_domain_name: default
 
+.. note::
+
+   ``project_domain_name`` and ``user_domain_name`` must be adjusted accordingly.
+
 The vendor preset ``betacloud`` has recently been added to ``os-client-config`` and may not be available. Alternatively, this file can be used.
 
 .. code-block:: yaml
@@ -44,6 +48,10 @@ The vendor preset ``betacloud`` has recently been added to ``os-client-config`` 
        interface: public
        identity_api_version: 3
        volume_api_version: 3
+
+.. note::
+
+   ``project_domain_name`` and ``user_domain_name`` must be adjusted accordingly.
 
 .. note::
 
