@@ -13,7 +13,6 @@ It is completely managed with the OpenStack Infrastructure & Service Manager (OS
    glance
    nova
    integration
-   operations
    appendix
 
 The documentation is maintained on Github: https://github.com/osism/documentation. There you can open issues for found errors and so on.
