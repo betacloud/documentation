@@ -28,6 +28,7 @@ Possible values for e.g. ``os_distro`` can be found on https://docs.openstack.or
        --public \
        --container-format bare \
        --disk-format raw \
+       --property hw_watchdog_action=reset \
        --property hw_disk_bus=scsi \
        --property hw_scsi_model=virtio-scsi \
        --property hw_vif_multiqueue_enabled=true \
