@@ -2,9 +2,9 @@
 Betacloud
 =========
 
-The Betacloud is a testbed environment of Betacloud Solutions GmbH. Further details about Betacloud can be found on https://betacloud.io.
+The Betacloud is a public cloud, managed by the OpenStack Infrastructure & Service Manager (OSISM), for our customers. We use the Betacloud itself to provide lab and testbed projects as well as the continuous integration (CI) of our Ansible roles and Docker images. Further details about Betacloud can be found on https://betacloud.io.
 
-It is completely managed with the OpenStack Infrastructure & Service Manager (OSISM). OSISM is a Ansible & Docker based deployment framework for managing OpenStack, Ceph, and necessary services. Further details about OSISM can be found on https://osism.io.
+OSISM is a Ansible & Docker based deployment framework for managing OpenStack, Ceph, and necessary services. Further details about OSISM can be found on https://osism.io.
 
 .. toctree::
    :maxdepth: 2
