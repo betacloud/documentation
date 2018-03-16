@@ -2,6 +2,9 @@
 Ansible
 =======
 
+Preparations
+============
+
 * Prepare virtual environment
 
 .. code-block:: none
@@ -31,6 +34,11 @@ Ansible
 .. note::
 
    ``project_domain_name`` and ``user_domain_name`` must be adjusted accordingly.
+
+OpenStack modules
+=================
+
+* http://docs.ansible.com/ansible/latest/list_of_cloud_modules.html#openstack
 
 * Create a ``playbook.yml`` file
 
@@ -74,7 +82,31 @@ Ansible
    PLAY RECAP ****************************************************************
    localhost                  : ok=1    changed=1    unreachable=0    failed=0
 
-References
-==========
+Dynamic inventory
+=================
 
-* http://docs.ansible.com/ansible/latest/list_of_cloud_modules.html#openstack
+* http://docs.ansible.com/ansible/latest/intro_dynamic_inventory.html
+
+.. code-block:: none
+
+   $ wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/openstack.py
+   $ chmod +x openstack.py
+
+* View the inventory with ``ansible-inventory``
+
+.. code-block:: none
+
+   $ ansible-inventory -i openstack.py --list
+
+* Use the inventory with ``ansible`` & ``ansible-playbook``
+
+.. code-block:: none
+
+   $ ansible-playbook -i openstack.py [...]
+
+* Alternatively add an entry in the ``ansible.cfg``
+
+.. code-block:: ini
+
+   [defaults]
+   inventory = openstack.py
