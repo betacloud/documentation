@@ -25,5 +25,6 @@ after_success:
 notifications:
   irc:
     channels:
-      - "irc.freenode.org#betacloud"
-    use_notice: true
+      - "irc.freenode.org#osism"
+    template:
+      - "%{result} %{repository_slug}: %{commit_subject} %{build_url}"
