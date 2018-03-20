@@ -7,6 +7,12 @@ OpenStackClient (aka OSC) is a command-line client for OpenStack that brings the
 Installation
 ============
 
+.. note::
+
+   Possibly release names (e.g. ``pike``) are already obsolete. Then just use the current release.
+
+   An overview of OpenStack releases can be found at https://releases.openstack.org/.
+
 * Ubuntu
 
   1. Add latest Ubuntu Cloud Archive (UCA) repository: ``sudo add-apt-repository cloud-archive:pike`` (``add-apt-repository`` is part of the package ``software-properties-common``)
