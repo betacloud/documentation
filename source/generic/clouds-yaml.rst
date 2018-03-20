@@ -2,6 +2,12 @@
 clouds.yaml
 ===========
 
+.. note::
+
+   Identifiers such as ``USERNAME``, ``PASSWORD``, ``PROJECT`` are placeholders and should be replaced accordingly.
+
+* https://docs.openstack.org/os-client-config/latest/
+
 The file ``clouds.yaml`` is used to provide access to the OpenStack client. This eliminates the need to use environment variables or ``openrc`` files.
 
 The file ``clouds.yaml`` must be stored at one of the following locations The first file found wins
@@ -10,15 +16,26 @@ The file ``clouds.yaml`` must be stored at one of the following locations The fi
 * ``~/.config/openstack``
 * ``/etc/openstack``
 
-Below is a ``clouds.yaml`` example file to access project PROJECT with user USERNAME. It is possible to define multiple accesses in one file.
+With vendor profile
+===================
 
-To use access ``PROJECT`` with the OpenStack client, it is called with ``openstack --os-cloud PROJECT``.
+.. note::
+
+   The vendor preset ``betacloud`` has recently been added to the ``os-client-config`` library and may not be available.
+
+   * https://docs.openstack.org/os-client-config/latest/user/vendor-support.html#betacloud
+
+Below is a ``clouds.yaml`` example file to access project PROJECT with user USERNAME.
+It is possible to define multiple accesses in one file. Therefore every entry is assigned a ``NAME``.
+
+To use access ``NAME`` with the OpenStack client, it is called with ``openstack --os-cloud NAME``.
+If only one entry is listed in the file you can omit the parameter.
 
 .. code-block:: yaml
 
    ---
    clouds:
-     PROJECT:
+     NAME:
        profile: betacloud
        auth:
          username: USERNAME
@@ -31,13 +48,18 @@ To use access ``PROJECT`` with the OpenStack client, it is called with ``opensta
 
    ``project_domain_name`` and ``user_domain_name`` must be adjusted accordingly.
 
-The vendor preset ``betacloud`` has recently been added to ``os-client-config`` and may not be available. Alternatively, this file can be used.
+   If you login to Horizon with the domain ``COMPANY`` you have to use ``COMPANY`` instead of ``default``.
+
+Without vendor profile
+======================
+
+Alternatively, this file can be used. No vendor profile is used here.
 
 .. code-block:: yaml
 
    ---
    clouds:
-     PROJECT:
+     NAME:
        auth:
          auth_url: https://api-1.betacloud.io:5000/v3
          username: USERNAME
@@ -53,14 +75,10 @@ The vendor preset ``betacloud`` has recently been added to ``os-client-config`` 
 
    ``project_domain_name`` and ``user_domain_name`` must be adjusted accordingly.
 
+   If you login to Horizon with the domain ``COMPANY`` you have to use ``COMPANY`` instead of ``default``.
+
 .. note::
 
    Apart from the OpenStackClient, other clients do not yet support clouds.yaml comprehensively.
 
    https://specs.openstack.org/openstack/openstack-specs/specs/clouds-yaml-support.html
-
-References
-==========
-
-* https://docs.openstack.org/os-client-config/latest/
-* https://docs.openstack.org/os-client-config/latest/user/vendor-support.html#betacloud
