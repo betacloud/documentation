@@ -4,7 +4,7 @@ Importing RBD image
 
 Some images are very large after the conversion into the ``raw`` format.
 
-.. code-block:: shell
+.. code-block:: console
 
    $ qemu-img info testing.qcow2 
    image: testing.qcow2
@@ -24,7 +24,7 @@ If adjusting the size with ``virt-resize`` is not an option, the following appro
 
    Make sure beforehand that ``image_size_cap`` and/or ``user_storage_quota`` are set high enough.
 
-.. code-block:: shell
+.. code-block:: console
 
    $ IMAGE_ID=$(uuidgen)
    $ echo $IMAGE_ID
@@ -33,11 +33,11 @@ If adjusting the size with ``virt-resize`` is not an option, the following appro
 
 Of course, the image can already be in RAW format.
 
-.. code-block:: shell
+.. code-block:: console
 
    $ qemu-img convert -f raw -O raw testing.raw rbd:images/$IMAGE_ID
 
-.. code-block:: shell
+.. code-block:: console
 
    $ rbd info images/$IMAGE_ID
    rbd image '2264ffb1-78f0-4f2f-b027-86af353cc54d':
@@ -49,19 +49,19 @@ Of course, the image can already be in RAW format.
        flags: 
        create_timestamp: Mon Feb  5 20:29:37 2018
 
-.. code-block:: shell
+.. code-block:: console
 
    $ rbd snap create images/$IMAGE_ID@snap
    $ rbd snap protect images/$IMAGE_ID@snap
 
 .. note::
 
-   .. code-block:: shell
+   .. code-block:: console
 
       $ ceph fsid
       7c5eba58-c30b-4f2a-90c1-73d8aa9b7162
 
-.. code-block:: shell
+.. code-block:: console
 
    $ IMAGE_ID=2264ffb1-78f0-4f2f-b027-86af353cc54d
    $ CLUSTER_ID=7c5eba58-c30b-4f2a-90c1-73d8aa9b7162
@@ -76,7 +76,7 @@ Of course, the image can already be in RAW format.
 
      ERROR: --location was given, which is an Image v1 option that is no longer supported in Image v2
 
-.. code-block:: shell
+.. code-block:: console
 
    $ openstack --os-cloud service image --os-image-api-version 1 create \
        --private \

@@ -4,7 +4,7 @@ Resize image
 
 Some images are very large after the conversion.
 
-.. code-block:: shell
+.. code-block:: console
 
    $ qemu-img info testing.raw
    image: testing.raw
@@ -14,11 +14,11 @@ Some images are very large after the conversion.
 
 With ``virt-resize`` from ``libguestfs`` it is possible to shrink the size.
 
-.. code-block:: shell
+.. code-block:: console
 
    $ truncate -s 10G target.raw
 
-.. code-block:: shell
+.. code-block:: console
 
    $ virt-resize --resize-force /dev/sda3=10215M testing.raw target.raw
    [   0.0] Examining testing.raw
@@ -50,7 +50,7 @@ With ``virt-resize`` from ``libguestfs`` it is possible to shrink the size.
    Resize operation completed with no errors.  Before deleting the old disk,
    carefully check that the resized disk boots and works correctly.
 
-.. code-block:: shell
+.. code-block:: console
 
    $ qemu-img info target.raw
    image: target.raw
