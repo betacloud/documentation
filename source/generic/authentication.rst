@@ -83,6 +83,7 @@ Alternatively, this file can be used. No vendor profile is used here.
 .. note::
 
    Apart from the OpenStackClient, other clients do not yet support clouds.yaml comprehensively.
+   Wherever possible, always use the OpenStackClient. If not possible use an `openrc` file.
 
    https://specs.openstack.org/openstack/openstack-specs/specs/clouds-yaml-support.html
 
