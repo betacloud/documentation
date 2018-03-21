@@ -1,4 +1,7 @@
-===========
+==============
+Authentication
+==============
+
 clouds.yaml
 ===========
 
@@ -17,7 +20,7 @@ The file ``clouds.yaml`` must be stored at one of the following locations The fi
 * ``/etc/openstack``
 
 With vendor profile
-===================
+-------------------
 
 .. note::
 
@@ -51,7 +54,7 @@ If only one entry is listed in the file you can omit the parameter.
    If you login to Horizon with the domain ``COMPANY`` you have to use ``COMPANY`` instead of ``default``.
 
 Without vendor profile
-======================
+----------------------
 
 Alternatively, this file can be used. No vendor profile is used here.
 

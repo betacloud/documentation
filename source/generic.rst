@@ -5,6 +5,6 @@ Generic
 .. toctree::
    :maxdepth: 2
 
+   generic/authentication
    generic/openstackclient
-   generic/clouds-yaml
    generic/images
