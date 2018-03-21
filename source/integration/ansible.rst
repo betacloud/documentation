@@ -13,27 +13,7 @@ Preparations
    $ source .venv/bin/activate
    $ pip install ansible shade
 
-* Create a ``clouds.yml`` file
-
-.. code-block:: yaml
-
-   ---
-   clouds:
-     PROJECT:
-       auth:
-         auth_url: https://api-1.betacloud.io:5000/v3
-         username: USERNAME
-         password: PASSWORD
-         project_name: PROJECT
-         project_domain_name: default
-         user_domain_name: default
-       interface: public
-       identity_api_version: 3
-       volume_api_version: 3
-
-.. note::
-
-   ``project_domain_name`` and ``user_domain_name`` must be adjusted accordingly.
+* Create a ``clouds.yml`` file (see `Authentication` chapter)
 
 OpenStack modules
 =================
