@@ -85,3 +85,25 @@ Alternatively, this file can be used. No vendor profile is used here.
    Apart from the OpenStackClient, other clients do not yet support clouds.yaml comprehensively.
 
    https://specs.openstack.org/openstack/openstack-specs/specs/clouds-yaml-support.html
+
+openrc
+======
+
+Below is a ``openrc`` example file to access project PROJECT with user USERNAME.
+
+.. code-block:: shell
+
+   export OS_PROJECT_DOMAIN_NAME=default
+   export OS_USER_DOMAIN_NAME=default
+   export OS_PROJECT_NAME=PROJECT
+   export OS_USERNAME=USERNAME
+   export OS_PASSWORD=PASWORD
+   export OS_AUTH_URL=https://api-1.betacloud.io:5000/v3
+   export OS_IDENTITY_API_VERSION=3
+   export OS_VOLUME_API_VERSION=3
+
+.. note::
+
+   ``OS_PROJECT_DOMAIN_NAME`` and ``OS_USER_DOMAIN_NAME`` must be adjusted accordingly.
+
+   If you login to Horizon with the domain ``COMPANY`` you have to use ``COMPANY`` instead of ``default``.
