@@ -26,3 +26,5 @@ Following is a list of vendor images with associated login users.
 +------------+----------------+
 | openSUSE   | opensuse       |
 +------------+----------------+
+| RancherOS  | rancher        |
++------------+----------------+
