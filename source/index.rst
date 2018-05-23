@@ -12,6 +12,7 @@ OSISM is a Ansible & Docker based deployment framework for managing OpenStack, C
    generic
    glance
    nova
+   other
    integration
    appendix
 
