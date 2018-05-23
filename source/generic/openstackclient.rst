@@ -13,26 +13,28 @@ Installation
 
    An overview of OpenStack releases can be found at https://releases.openstack.org/.
 
-* Ubuntu
+Ubuntu
+------
 
-  1. Add latest Ubuntu Cloud Archive (UCA) repository: ``sudo add-apt-repository cloud-archive:pike`` (``add-apt-repository`` is part of the package ``software-properties-common``)
-  2. Install ``python-openstackclient``: ``sudo apt-get install python-openstackclient``
+1. Add latest Ubuntu Cloud Archive (UCA) repository: ``sudo add-apt-repository cloud-archive:pike`` (``add-apt-repository`` is part of the package ``software-properties-common``)
+2. Install ``python-openstackclient``: ``sudo apt-get install python-openstackclient``
 
-  .. note::
+.. note::
 
-     The package ``python-openstackclient`` does not install all OpenStack Python client libraries as dependencies. Install these manually if plugins are missing/not usable in ``python-openstackclient``, e.g.```sudo apt-get install python-heatclient`` to be able to use the Heat plugin.
+   The package ``python-openstackclient`` does not install all OpenStack Python client libraries as dependencies. Install these manually if plugins are missing/not usable in ``python-openstackclient``, e.g.```sudo apt-get install python-heatclient`` to be able to use the Heat plugin.
 
-* Pip
+Pip
+---
 
-  1. Create and activate a virtual environment: ``virtualenv .venv && source .venv/bin/activate`` (``virtualenv`` is part of the package ``virtualenv``)
-  2. Install the latest released version of ``python-openstackclient``: ``pip install python-openstackclient``
+1. Create and activate a virtual environment: ``virtualenv .venv && source .venv/bin/activate`` (``virtualenv`` is part of the package ``virtualenv``)
+2. Install the latest released version of ``python-openstackclient``: ``pip install python-openstackclient``
 
-  .. note::
+.. note::
 
-     The installed dependencies require the installation of additional development packages, such as ``pyhton-dev`` on Ubuntu.
+   The installed dependencies require the installation of additional development packages, such as ``pyhton-dev`` on Ubuntu.
 
-  .. note::
+.. note::
 
-     An installation of the master branch is also possible: ``pip install git+https://github.com/openstack/python-openstackclient``
+   An installation of the master branch is also possible: ``pip install git+https://github.com/openstack/python-openstackclient``
 
 .. [#s1] source: https://github.com/openstack/python-openstackclient/blob/master/README.rst
