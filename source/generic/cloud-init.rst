@@ -28,7 +28,11 @@ Creating users while preserving default users (remove ``default`` to remove defa
      - name: foo
        shell: /bin/bash
        sudo: ALL=(ALL) NOPASSWD:ALL
+       password: $6$rounds=4096$123456789...
+       chpasswd: { expire: False }
        ssh_authorized_keys:
          - some_pubkey_content
+
+The password hash can be created with ``mkpasswd --method=SHA-512 --rounds=4096``.
 
 .. _cloudinitdoc: https://cloudinit.readthedocs.io/en/latest/
