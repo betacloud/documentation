@@ -10,7 +10,7 @@ Images are created through the manager node.
 
 Store the image file temporarily under ``/opt/configuration/environments/openstack``.
 
-The image must be in raw format. A conversion can be done in advance with ``qemu-img``.
+The image must be in raw format. A conversion can be done in advance with ``qemu-img`` (part of the ``qemu-utils`` package).
 
 .. code-block:: none
 
