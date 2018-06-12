@@ -2,6 +2,8 @@
 Importing RBD image
 ===================
 
+* https://www.hastexo.com/resources/hints-and-kinks/importing-rbd-into-glance/
+
 Some images are very large after the conversion into the ``raw`` format.
 
 .. code-block:: console
@@ -98,8 +100,3 @@ Of course, the image can already be in RAW format.
 .. todo::
 
    Document use of ``--property``.
-
-References
-==========
-
-* https://www.hastexo.com/resources/hints-and-kinks/importing-rbd-into-glance/
