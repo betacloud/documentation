@@ -2,6 +2,19 @@
 Resize image
 ============
 
+.. code-block:: console
+
+   $ qemu-img info testing.qcow2
+   image: testing.qcow2
+   file format: qcow2
+   virtual size: 40G (42949672960 bytes)
+   disk size: 2.3G
+   [...]
+
+.. code-block:: console
+
+   $ qemu-img convert -f qcow2 -O raw testing.qcow2 testing.raw
+
 Some images are very large after the conversion.
 
 .. code-block:: console
@@ -17,6 +30,13 @@ With ``virt-resize`` from ``libguestfs`` it is possible to shrink the size.
 .. code-block:: console
 
    $ truncate -s 10G target.raw
+
+.. code-block:: console
+
+   $ virt-list-partitions testing.raw
+   /dev/sda1
+   /dev/sda2
+   /dev/sda3
 
 .. code-block:: console
 
