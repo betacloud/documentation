@@ -1,14 +1,10 @@
-============
+===========
 Create image
 ============
 
 .. note::
 
    Standard images like Ubuntu or Debian are deployed globally. Should there be need for further distributions or appliances send an email to ``support@betacloud.io``.
-
-Images are created through the manager node.
-
-Store the image file temporarily under ``/opt/configuration/environments/openstack``.
 
 The image must be in raw format. A conversion can be done in advance with ``qemu-img`` (part of the ``qemu-utils`` package).
 
@@ -18,13 +14,13 @@ The image must be in raw format. A conversion can be done in advance with ``qemu
        bionic-server-cloudimg-amd64.img \
        bionic-server-cloudimg-amd64.img.raw
 
-The import is now done with the ``openstack`` client. Then remove the temporary files.
+The import is now done with the ``openstack`` client.
 
 Possible values for e.g. ``os_distro`` can be found on https://docs.openstack.org/python-glanceclient/latest/cli/property-keys.html.
 
 .. code-block:: none
 
-   $ openstack --os-cloud service image create \
+   $ openstack --os-cloud images image create \
        --public \
        --container-format bare \
        --disk-format raw \
@@ -34,7 +30,7 @@ Possible values for e.g. ``os_distro`` can be found on https://docs.openstack.or
        --property hw_vif_multiqueue_enabled=true \
        --property os_distro=ubuntu \
        --property os_version=18.04 \
-       --file /configuration/bionic-server-cloudimg-amd64.img.raw \
+       --file bionic-server-cloudimg-amd64.img.raw \
        "Ubuntu 18.04 (Bionic Beaver)"
    +------------------+------------------------------------------------------+
    | Field            | Value                                                |
