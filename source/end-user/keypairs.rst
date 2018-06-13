@@ -5,6 +5,11 @@ Keypairs
 Assignment of multiple keys
 ===========================
 
+* https://bugs.launchpad.net/nova/+bug/1499751 (OpenStack (nova boot exactly) allows only one SSH key)
+* https://docs.openstack.org/ocata/user-guide/cli-provide-user-data-to-instances.html
+* http://cloudinit.readthedocs.io/en/latest/topics/examples.html#configure-instances-ssh-keys
+* http://cloudinit.readthedocs.io/en/latest/topics/modules.html#ssh
+
 OpenStack allows to specify only one SSH key when instance is created.
 To specify several keypairs when creating an instance, ``cloud-config`` can be used.
 
@@ -21,7 +26,7 @@ To specify several keypairs when creating an instance, ``cloud-config`` can be u
 
 * Create an instance ``testing``.
 
-.. code-block:: none
+.. code-block:: console
 
    $ openstack --os-cloud PROJECT server create \
        --image "Ubuntu 16.04 (Xenial Xerus)" \
@@ -31,7 +36,7 @@ To specify several keypairs when creating an instance, ``cloud-config`` can be u
 
 * When the instance is initialized, the keys are now assigned.
 
-.. code-block:: none
+.. code-block:: console
 
    $ openstack --os-cloud PROJECT console log show testing
    [...]
@@ -45,11 +50,3 @@ To specify several keypairs when creating an instance, ``cloud-config`` can be u
    ci-info: | ssh-rsa | 31:2b:c2:2c:c9:cc:27:38:c9:90:28:df:82:c4:1f:eb |    -    |   004   |
    ci-info: +---------+-------------------------------------------------+---------+---------+
    [...]
-
-References
-----------
-
-* https://bugs.launchpad.net/nova/+bug/1499751 (OpenStack (nova boot exactly) allows only one SSH key)
-* https://docs.openstack.org/ocata/user-guide/cli-provide-user-data-to-instances.html
-* http://cloudinit.readthedocs.io/en/latest/topics/examples.html#configure-instances-ssh-keys
-* http://cloudinit.readthedocs.io/en/latest/topics/modules.html#ssh

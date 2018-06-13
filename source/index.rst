@@ -15,8 +15,7 @@ https://osism.io.
 .. toctree::
    :maxdepth: 2
 
-   generic
-   integration
+   end-user
    operations
    appendix
 
