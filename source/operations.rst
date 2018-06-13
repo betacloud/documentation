@@ -7,4 +7,3 @@ Operations
 
    operations/ceph
    operations/openstack
-   operations/other
