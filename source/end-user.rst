@@ -9,5 +9,4 @@ End user
    end-user/cloud-init
    end-user/images
    end-user/integration
-   end-user/keypairs
    end-user/openstackclient

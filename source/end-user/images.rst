@@ -2,10 +2,7 @@
 Images
 ======
 
-Vendor images
-=============
-
-Following is a list of vendor images with associated login users.
+Following is a list of available image families with associated login users.
 
 +------------+----------------+
 | **Image**  | **Login user** |
