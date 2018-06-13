@@ -1,6 +1,6 @@
-===================
-Importing RBD image
-===================
+================
+Import RBD image
+================
 
 * https://www.hastexo.com/resources/hints-and-kinks/importing-rbd-into-glance/
 
@@ -80,7 +80,7 @@ Of course, the image can already be in RAW format.
 
 .. code-block:: console
 
-   $ openstack --os-cloud service image --os-image-api-version 1 create \
+   $ openstack --os-cloud images image --os-image-api-version 1 create \
        --private \
        --container-format bare \
        --disk-format raw \
