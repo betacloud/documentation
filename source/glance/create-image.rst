@@ -1,4 +1,4 @@
-===========
+============
 Create image
 ============
 
@@ -8,20 +8,23 @@ Create image
 
 The image must be in raw format. A conversion can be done in advance with ``qemu-img`` (part of the ``qemu-utils`` package).
 
-.. code-block:: none
+.. code-block:: console
 
    $ qemu-img convert -f qcow2 -O raw \
        bionic-server-cloudimg-amd64.img \
        bionic-server-cloudimg-amd64.img.raw
 
-The import is now done with the ``openstack`` client.
+.. note::
 
-Possible values for e.g. ``os_distro`` can be found on https://docs.openstack.org/python-glanceclient/latest/cli/property-keys.html.
+   Possible properties and values can be found on https://docs.openstack.org/glance/latest/admin/useful-image-properties.html.
 
-.. code-block:: none
+.. note::
+
+   For normal users, it is only possible to create private images. Public images can only be created by privileged users.
+
+.. code-block:: console
 
    $ openstack --os-cloud images image create \
-       --public \
        --container-format bare \
        --disk-format raw \
        --property hw_watchdog_action=reset \
@@ -53,5 +56,33 @@ Possible values for e.g. ``os_distro`` can be found on https://docs.openstack.or
    | tags             |                                                      |
    | updated_at       | 2018-02-01T21:05:24Z                                 |
    | virtual_size     | None                                                 |
-   | visibility       | public                                               |
+   | visibility       | private                                              |
    +------------------+------------------------------------------------------+
+
+.. note::
+
+   Instead of a general value for ``os_distro`` like ``ubuntu``, a specific so-called ``Short ID`` can also be used.
+
+   Possible short IDs can be looked up in the libosinfo database (https://libosinfo.org).
+
+   .. code-block:: console
+
+      $ osinfo-query os vendor="SUSE"
+       Short ID             | Name                                               | Version  | ID
+      ----------------------+----------------------------------------------------+----------+-----------------------------------------
+       sled10               | SUSE Linux Enterprise Desktop 10                   | 10       | http://suse.com/sled/10
+       sled11               | SUSE Linux Enterprise Desktop 11                   | 11       | http://suse.com/sled/11
+       sled11sp1            | SUSE Linux Enterprise Desktop 11 SP1               | 11.1     | http://suse.com/sled/11.1
+       sled11sp2            | SUSE Linux Enterprise Desktop 11 SP2               | 11.2     | http://suse.com/sled/11.2
+       sled11sp3            | SUSE Linux Enterprise Desktop 11 SP3               | 11.3     | http://suse.com/sled/11.3
+       sled11sp4            | SUSE Linux Enterprise Desktop 11 SP4               | 11.4     | http://suse.com/sled/11.4
+       sled12               | SUSE Linux Enterprise Desktop 12                   | 12       | http://suse.com/sled/12
+       sled9                | SUSE Linux Enterprise Desktop 9                    | 9        | http://suse.com/sled/9
+       sles10               | SUSE Linux Enterprise Server 10                    | 10       | http://suse.com/sles/10
+       sles11               | SUSE Linux Enterprise Server 11                    | 11       | http://suse.com/sles/11
+       sles11sp1            | SUSE Linux Enterprise Server 11 SP1                | 11.1     | http://suse.com/sles/11.1
+       sles11sp2            | SUSE Linux Enterprise Server 11 SP2                | 11.2     | http://suse.com/sles/11.2
+       sles11sp3            | SUSE Linux Enterprise Server 11 SP3                | 11.3     | http://suse.com/sles/11.3
+       sles11sp4            | SUSE Linux Enterprise Server 11 SP4                | 11.4     | http://suse.com/sles/11.4
+       sles12               | SUSE Linux Enterprise Server 12                    | 12       | http://suse.com/sles/12
+       sles9                | SUSE Linux Enterprise Server 9                     | 9        | http://suse.com/sles/9
