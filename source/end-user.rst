@@ -7,6 +7,7 @@ End user
 
    end-user/authentication
    end-user/cloud-init
+   end-user/frameworks
    end-user/images
    end-user/integration
    end-user/openstackclient
