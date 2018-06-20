@@ -54,12 +54,12 @@ Preparations
 Creation
 ========
 
-* Run the ``site.yml`` playbook
+* Run the ``site.yaml`` playbook
 
   .. code-block:: console
 
      $ source k8s-on-openstack.env
-     $ ansible-playbook site.yml
+     $ ansible-playbook site.yaml
 
 Usage
 =====
@@ -67,9 +67,9 @@ Usage
 Destruction
 ===========
 
-* Run the ``destroy.yml`` playbook
+* Run the ``destroy.yaml`` playbook
 
   .. code-block:: console
 
      $ source k8s-on-openstack.env
-     $ ansible-playbook destroy.yml
+     $ ansible-playbook destroy.yaml
