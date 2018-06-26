@@ -7,3 +7,4 @@ Features
 
    features/fwaas
    features/lbaas
+   features/magnum
