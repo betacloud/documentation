@@ -1,5 +1,7 @@
 # Betacloud documentation
 
+[![Build Status](https://travis-ci.org/betacloud/documentation.svg?branch=master)](https://travis-ci.org/betacloud/documentation)
+
 Published at http://docs.betacloud.io.
 
 ## License
