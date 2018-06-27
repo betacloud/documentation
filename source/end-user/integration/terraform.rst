@@ -96,7 +96,7 @@ OpenStack Resource
 Variables
 ============
 
-* Create a ``variables.tf`` file below the instance01 directory
+* Create a ``variables.tf`` file below the sample directory
 
 .. code-block:: json
 
