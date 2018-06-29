@@ -38,7 +38,7 @@ OpenStack Provider
 
 * Create the modules directory
 
-.. code-block: none
+.. code-block:: shell
 
    $ mkdir -p modules/sample
 
