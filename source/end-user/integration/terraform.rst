@@ -133,7 +133,6 @@ Variables
        default  = "Ubuntu 18.04 (Bionic Beaver)"
    }
 
-
 .. note::
 
 The variables must be adjusted according to the project used.
@@ -149,4 +148,3 @@ In this step, the required resources are compared with the state information
 stored by Terraform. After checking the plan, the configuration can be carried 
 out with ``terraform apply``. The instance can easily be deleted using the 
 ``terraform destroy`` command.
-
