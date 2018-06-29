@@ -62,14 +62,17 @@ OpenStack modules
    PLAY RECAP ****************************************************************
    localhost                  : ok=1    changed=1    unreachable=0    failed=0
 
-Dynamic inventory
-=================
+Inventory
+=========
 
-* http://docs.ansible.com/ansible/latest/intro_dynamic_inventory.html
+External inventory script
+-------------------------
+
+* https://docs.ansible.com/ansible/latest/user_guide/intro_dynamic_inventory.html
 
 .. code-block:: none
 
-   $ wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/openstack.py
+   $ wget https://raw.githubusercontent.com/ansible/ansible/stable-2.5/contrib/inventory/openstack.py
    $ chmod +x openstack.py
 
 * View the inventory with ``ansible-inventory``
@@ -90,3 +93,9 @@ Dynamic inventory
 
    [defaults]
    inventory = openstack.py
+
+Inventory plugin
+-----------------
+
+* https://docs.ansible.com/ansible/latest/plugins/inventory.html
+* https://docs.ansible.com/ansible/latest/plugins/inventory/openstack.html
