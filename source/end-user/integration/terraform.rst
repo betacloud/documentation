@@ -2,6 +2,12 @@
 Terraform
 =========
 
+* https://www.terraform.io
+
+Terraform is an open source tool from ``HashiCorp`` that can be used to create and manage 
+application infrastructure. Terraform can also provide software for example with Ansible or Chef.
+
+
 OpenStack Provider
 ==================
 
