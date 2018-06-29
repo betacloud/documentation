@@ -141,5 +141,6 @@ all the necessary components to build the template in OpenStack. If the working
 directory is initialized, we create an execution plan with ``terraform plan``. 
 In this step, the required resources are compared with the state information 
 stored by Terraform. After checking the plan, the configuration can be carried 
-out with ``terraform apply``.
+out with ``terraform apply``. The instance can easily be deleted using the 
+``terraform destroy`` command.
 
