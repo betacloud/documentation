@@ -59,6 +59,14 @@ Usage
 
 * Now you can use ``kubectl`` as usually.
 
+  .. code-block:: shell
+
+     $ kubectl cluster-info
+
+.. note::
+
+   You can obtain ``kubectl`` at
+   https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
 Troubleshooting
 ===============
