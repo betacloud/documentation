@@ -22,7 +22,7 @@ Preparations
   
    Be careful to pick an image version that is compatible with the current
    Magnum version. Currently Betacloud is running OpenStack Ocata, so the
-   ``fedora-atomic-ocata`` image works fine.
+   ``Fedora Atomic Host 25 for Magnum (Ocata)`` image works fine.
 
 Create Cluster Template and Cluster
 ===================================
