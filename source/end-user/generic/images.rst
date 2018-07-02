@@ -21,7 +21,7 @@ Following is a list of available image families with associated login users.
 +------------+----------------+
 | RedHat     | cloud-user     |
 +------------+----------------+
-| SUSE       | root           |
+| SUSE       | root / sles    |
 +------------+----------------+
 | Ubuntu     | ubuntu         |
 +------------+----------------+
