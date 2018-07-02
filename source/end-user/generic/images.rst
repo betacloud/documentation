@@ -13,6 +13,8 @@ Following is a list of available image families with associated login users.
 +------------+----------------+
 | Cirros     | cirros         |
 +------------+----------------+
+| CoreOS     | core           |
++------------+----------------+
 | Debian     | debian         |
 +------------+----------------+
 | Fedora     | fedora         |
