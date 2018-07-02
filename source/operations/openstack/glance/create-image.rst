@@ -4,7 +4,7 @@ Create image
 
 .. note::
 
-   Standard images like Ubuntu or Debian are deployed globally. Should there be need for further distributions or appliances send an email to ``support@betacloud.io``.
+   Standard images like Ubuntu or Debian are deployed globally. Should there be need for further distributions or appliances please check https://github.com/betacloud/images.
 
 The image must be in raw format. A conversion can be done in advance with ``qemu-img`` (part of the ``qemu-utils`` package).
 
