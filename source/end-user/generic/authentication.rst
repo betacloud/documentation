@@ -92,7 +92,7 @@ openrc
 
 Below is a ``openrc`` example file to access project PROJECT with user USERNAME.
 
-.. code-block:: shell
+.. code-block:: console
 
    export OS_PROJECT_DOMAIN_NAME=default
    export OS_USER_DOMAIN_NAME=default

@@ -30,7 +30,7 @@ Create Cluster Template and Cluster
 * Create a cluster template. You have to specify the flavors to be used for k8s
   masters and k8s nodes seperately.
 
-  .. code-block:: shell
+  .. code-block:: console
 
      $ magnum cluster-template-create --image <image>  --keypair <keypair> \
          --external-network <external-network> --dns-nameserver <nameserver> \
@@ -39,7 +39,7 @@ Create Cluster Template and Cluster
 
 * Create a cluster from your cluster template.
 
-  .. code-block:: shell
+  .. code-block:: console
 
      $ magnum cluster-create --cluster-template <template> \
          --node-count <node-count> <name>
@@ -52,14 +52,14 @@ Usage
 
 * Save cluster config to a local directory and add it to environment
 
-  .. code-block:: shell
+  .. code-block:: console
 
      $ magnum cluster-config --dir <dir> <cluster>
      $ export KUBECONFIG=<dir>/config
 
 * Now you can use ``kubectl`` as usually.
 
-  .. code-block:: shell
+  .. code-block:: console
 
      $ kubectl cluster-info
 
@@ -76,14 +76,14 @@ Troubleshooting
 
 * Investigate your cluster
 
-  .. code-block:: shell
+  .. code-block:: console
 
      $ magnum cluster-list
      $ magnum cluster-show <cluster>
 
 * Investigate the Heat stack of your cluster
 
-  .. code-block:: shell
+  .. code-block:: console
 
      $ magnum cluster-list --fields uuid,name,stack_id
      $ openstack stack show <stack_id>
@@ -91,7 +91,7 @@ Troubleshooting
 
 * Investigate the virtual machines of your cluster
 
-  .. code-block:: shell
+  .. code-block:: console
 
      $ openstack stack resource list <stack_id> -n 2 \
          --filter type=OS::Nova::Server
