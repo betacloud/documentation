@@ -21,6 +21,8 @@ Following is a list of available image families with associated login users.
 +------------+----------------+
 | Gentoo     | gentoo         |
 +------------+----------------+
+| RancherOS  | rancher        |
++------------+----------------+
 | RedHat     | cloud-user     |
 +------------+----------------+
 | SUSE       | root / sles    |
