@@ -2,11 +2,14 @@
 Magnum
 ======
 
-* https://docs.openstack.org/magnum/latest/user/
-
 Magnum is an OpenStack API service developed by the OpenStack Containers Team
 making container orchestration engines (COE) such as Docker Swarm, Kubernetes
 and Apache Mesos available as the first class resources in OpenStack.
+
+Documentation
+=============
+
+* https://docs.openstack.org/magnum/latest/user/
 
 Preparations
 ============
@@ -14,38 +17,28 @@ Preparations
 * You need to have the ``heat_stack_owner`` role assigned to create Magnum
   clusters.
 
-* You need a Glance image that is supported by Magnum. The ``os_distro``
-  property has to be set properly on the image. We recommend the Fedora Atomic
-  Image, with the ``os_distro`` property set to ``fedora-atomic``.
+Create a cluster
+================
 
-.. note:: 
-  
-   Be careful to pick an image version that is compatible with the current
-   Magnum version. Currently Betacloud is running OpenStack Ocata, so the
-   ``Fedora Atomic Host 25 for Magnum (Ocata)`` image works fine.
+There are already some public cluster templates. These should be used as much as possible.
 
-Create Cluster Template and Cluster
-===================================
+.. code-block:: console
 
-* Create a cluster template. You have to specify the flavors to be used for k8s
-  masters and k8s nodes seperately.
+   $ magnum cluster-template-list
+   +--------------------------------------+-------------------------------------------------+
+   | uuid                                 | name                                            |
+   +--------------------------------------+-------------------------------------------------+
+   | 8b123c44-9d5b-4415-ba55-ebdfe12384f9 | Fedora Atomic Host 26 (20171030.0) - Kubernetes |
+   +--------------------------------------+-------------------------------------------------+
 
-  .. code-block:: console
+.. code-block:: console
 
-     $ magnum cluster-template-create --image <image>  --keypair <keypair> \
-         --external-network <external-network> --dns-nameserver <nameserver> \
-         --network-driver flannel --coe kubernetes --flavor <flavor> \
-         --master-flavor <master-flavor>
-
-* Create a cluster from your cluster template.
-
-  .. code-block:: console
-
-     $ magnum cluster-create --cluster-template <template> \
-         --node-count <node-count> <name>
-
-* For additional parameters have a look at the Magnum user documentation:
-  https://docs.openstack.org/magnum/latest/user/#kubernetes
+   $ magnum cluster-create \
+       --cluster-template 'Fedora Atomic Host 26 (20171030.0) - Kubernetes' \
+       --keypair KEYPAIR \
+       --master-count 1 \
+       --node-count 2 \
+       testing
 
 Usage
 =====
@@ -54,19 +47,50 @@ Usage
 
   .. code-block:: console
 
-     $ magnum cluster-config --dir <dir> <cluster>
-     $ export KUBECONFIG=<dir>/config
+     $ mkdir magnum-testing
+     $ magnum cluster-config --dir magnum-testing testing
+     $ export KUBECONFIG=magnum-testing/config
 
 * Now you can use ``kubectl`` as usually.
 
   .. code-block:: console
 
      $ kubectl cluster-info
+     Kubernetes master is running at https://a.b.c.d:6443
+     CoreDNS is running at https://a.b.c.d:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+     To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 
 .. note::
 
-   You can obtain ``kubectl`` at
-   https://kubernetes.io/docs/tasks/tools/install-kubectl/
+   You can obtain ``kubectl`` at https://kubernetes.io/docs/tasks/tools/install-kubectl/.
+
+Create a cluster template
+=========================
+
+You need a Glance image that is supported by Magnum. The ``os_distro``
+property has to be set properly on the image. We recommend the Fedora Atomic
+Image, with the ``os_distro`` property set to ``fedora-atomic``.
+
+.. code-block:: console
+
+   $ magnum cluster-template-create \
+       --coe kubernetes \
+       --dns-nameserver 9.9.9.9 \
+       --docker-volume-size 10 \
+       --external-network public \
+       --flavor 1C-1GB-10GB \
+       --image 'Fedora Atomic Host 26 (20171030.0)' \
+       --labels docker_volume_type=ceph-1 \
+       --master-flavor 1C-1GB-10GB \
+       --master-lb-enabled \
+       --network-driver flannel \
+       'Fedora Atomic Host 26 (20171030.0) - Kubernetes'
+
+.. note::
+
+   For additional parameters have a look at the Magnum user documentation:
+   https://docs.openstack.org/magnum/latest/user/#kubernetes
 
 Troubleshooting
 ===============
@@ -79,13 +103,21 @@ Troubleshooting
   .. code-block:: console
 
      $ magnum cluster-list
+     +--------------------------------------+---------+---------+------------+--------------+-----------------+
+     | uuid                                 | name    | keypair | node_count | master_count | status          |
+     +--------------------------------------+---------+---------+------------+--------------+-----------------+
+     | 3ed5bc1d-6b08-4b58-ac7d-1410027ea574 | testing | KEYPAIR | 2          | 1            | CREATE_COMPLETE |
+     +--------------------------------------+---------+---------+------------+--------------+-----------------+
+
+  .. code-block:: console
+
      $ magnum cluster-show <cluster>
 
 * Investigate the Heat stack of your cluster
 
   .. code-block:: console
 
-     $ magnum cluster-list --fields uuid,name,stack_id
+     $ magnum cluster-list --fields stack_id
      $ openstack stack show <stack_id>
      $ openstack stack event list <stack_id>
 
@@ -96,4 +128,3 @@ Troubleshooting
      $ openstack stack resource list <stack_id> -n 2 \
          --filter type=OS::Nova::Server
      $ openstack console log show <server>
-
