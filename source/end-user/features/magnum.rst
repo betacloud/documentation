@@ -81,7 +81,7 @@ Image, with the ``os_distro`` property set to ``fedora-atomic``.
        --external-network public \
        --flavor 1C-1GB-10GB \
        --image 'Fedora Atomic Host 26 (20171030.0)' \
-       --labels docker_volume_type=ceph-1 \
+       --labels docker_volume_type=ceph-1,prometheus_monitoring=True \
        --master-flavor 1C-1GB-10GB \
        --master-lb-enabled \
        --network-driver flannel \
