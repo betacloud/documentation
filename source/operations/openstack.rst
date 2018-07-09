@@ -7,3 +7,4 @@ OpenStack
 
    openstack/glance
    openstack/nova
+   openstack/projects
