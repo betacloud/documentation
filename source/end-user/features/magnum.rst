@@ -17,28 +17,54 @@ Preparations
 * You need to have the ``heat_stack_owner`` role assigned to create Magnum
   clusters.
 
+Create a cluster template
+=========================
+
+You need a Glance image that is supported by Magnum. The ``os_distro``
+property has to be set properly on the image. We recommend the Fedora Atomic
+image, with the ``os_distro`` property set to ``fedora-atomic``.
+
+.. code-block:: console
+
+   $ openstack coe cluster template create \
+       --coe kubernetes \
+       --dns-nameserver 9.9.9.9 \
+       --docker-volume-size 10 \
+       --external-network public \
+       --flavor 1C-1GB-10GB \
+       --image 'Fedora Atomic Host 27' \
+       --labels docker_volume_type=ceph-1,prometheus_monitoring=True \
+       --master-flavor 1C-1GB-10GB \
+       --master-lb-enabled \
+       --network-driver flannel \
+       'Fedora Atomic Host 27 - Kubernetes'
+
+.. note::
+
+   For additional parameters have a look at the Magnum user documentation:
+   https://docs.openstack.org/magnum/latest/user/#kubernetes
+
 Create a cluster
 ================
 
-There are already some public cluster templates. These should be used as much as possible.
+.. code-block:: console
+
+   $ openstack coe cluster template list
+   +--------------------------------------+------------------------------------+
+   | uuid                                 | name                               |
+   +--------------------------------------+------------------------------------+
+   | 52edf7fb-d61a-4311-a99e-6d2f5c005a03 | Fedora Atomic Host 27 - Kubernetes |
+   +--------------------------------------+------------------------------------+
 
 .. code-block:: console
 
-   $ magnum cluster-template-list
-   +--------------------------------------+-------------------------------------------------+
-   | uuid                                 | name                                            |
-   +--------------------------------------+-------------------------------------------------+
-   | 8b123c44-9d5b-4415-ba55-ebdfe12384f9 | Fedora Atomic Host 26 (20171030.0) - Kubernetes |
-   +--------------------------------------+-------------------------------------------------+
-
-.. code-block:: console
-
-   $ magnum cluster-create \
-       --cluster-template 'Fedora Atomic Host 26 (20171030.0) - Kubernetes' \
+   $ openstack coe cluster create \
+       --cluster-template 'Fedora Atomic Host 27 - Kubernetes' \
        --keypair KEYPAIR \
        --master-count 1 \
        --node-count 2 \
        testing
+   Request to create cluster 2548f2b3-64bd-487f-b5b5-003e631c8909 accepted
 
 Usage
 =====
@@ -48,7 +74,7 @@ Usage
   .. code-block:: console
 
      $ mkdir magnum-testing
-     $ magnum cluster-config --dir magnum-testing testing
+     $ openstack coe cluster config --dir magnum-testing testing
      $ export KUBECONFIG=magnum-testing/config
 
 * Now you can use ``kubectl`` as usually.
@@ -65,33 +91,6 @@ Usage
 
    You can obtain ``kubectl`` at https://kubernetes.io/docs/tasks/tools/install-kubectl/.
 
-Create a cluster template
-=========================
-
-You need a Glance image that is supported by Magnum. The ``os_distro``
-property has to be set properly on the image. We recommend the Fedora Atomic
-Image, with the ``os_distro`` property set to ``fedora-atomic``.
-
-.. code-block:: console
-
-   $ magnum cluster-template-create \
-       --coe kubernetes \
-       --dns-nameserver 9.9.9.9 \
-       --docker-volume-size 10 \
-       --external-network public \
-       --flavor 1C-1GB-10GB \
-       --image 'Fedora Atomic Host 26 (20171030.0)' \
-       --labels docker_volume_type=ceph-1,prometheus_monitoring=True \
-       --master-flavor 1C-1GB-10GB \
-       --master-lb-enabled \
-       --network-driver flannel \
-       'Fedora Atomic Host 26 (20171030.0) - Kubernetes'
-
-.. note::
-
-   For additional parameters have a look at the Magnum user documentation:
-   https://docs.openstack.org/magnum/latest/user/#kubernetes
-
 Troubleshooting
 ===============
 
@@ -102,7 +101,7 @@ Troubleshooting
 
   .. code-block:: console
 
-     $ magnum cluster-list
+     $ openstack coe cluster list
      +--------------------------------------+---------+---------+------------+--------------+-----------------+
      | uuid                                 | name    | keypair | node_count | master_count | status          |
      +--------------------------------------+---------+---------+------------+--------------+-----------------+
@@ -111,13 +110,13 @@ Troubleshooting
 
   .. code-block:: console
 
-     $ magnum cluster-show <cluster>
+     $ openstack coe cluster -show <cluster>
 
 * Investigate the Heat stack of your cluster
 
   .. code-block:: console
 
-     $ magnum cluster-list --fields stack_id
+     $ openstack coe cluster show testing -c stack_id
      $ openstack stack show <stack_id>
      $ openstack stack event list <stack_id>
 
