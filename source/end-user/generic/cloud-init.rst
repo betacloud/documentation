@@ -4,6 +4,31 @@ cloud-init
 
 * http://cloudinit.readthedocs.io/en/latest/
 
+With ``cloud-init`` instances can be configured at boot-time. Arbitrary scripts
+and configuration settings can be passed as user-data via the meta-data service.
+
+- Scripts need to start with shebang. Example: ``#!/usr/bin/env python``
+- Configuration settings start with the header ``#cloud-config``
+
+Scripts and config settings are passed at instance creation time as following:
+
+.. code-block:: console
+
+   $ openstack server create --user-data userdata.txt ...
+
+Set hostname
+============
+
+By passing ``cloud-init`` config via user-data, the hostname and fully qualified
+name can be set for an instance at creation time.
+
+.. code-block:: yaml
+
+   #cloud-config
+   hostname: myhost
+   fqdn: myhost.mydomain.name
+   manage_etc_hosts: yes
+
 Add users
 =========
 
