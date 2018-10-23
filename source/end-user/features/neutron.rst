@@ -5,5 +5,5 @@ Features
 .. toctree::
    :maxdepth: 2
 
-   features/magnum
-   features/neutron
+   neutron/fwaas
+   neutron/lbaas
