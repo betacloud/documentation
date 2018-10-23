@@ -5,5 +5,6 @@ Appendix
 .. toctree::
    :maxdepth: 2
 
-   appendix/trademark-information
    appendix/license
+   appendix/releases
+   appendix/trademark-information
