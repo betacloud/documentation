@@ -36,7 +36,15 @@ It's possible to easily create users or set the root password with ``cloud-init`
 
 Configuration files for ``cloud-init`` will need to be pasted to the **Customization Script** under the **Configuration** header when deploying an instance. The configuration is in YAML format and documented at cloudinitdoc_.
 
-A sample code block to set the root password and allow SSH password login for the instance. The password hash can be created with ``mkpasswd --method=SHA-512 --rounds=4096``.
+A sample code block to set the root password and allow SSH password login for the instance.
+
+The password hash can be created with ``mkpasswd --method=SHA-512 --rounds=4096``. The password used in the following sample is ``password``.
+
+.. code-block:: console
+
+   $ mkpasswd --method=SHA-512 --rounds=4096
+   Password:
+   $6$rounds=4096$hCCIXsg3Obv$CSLsdeM9pq/cFtFp3dn8dVmU327TqHU2JCuyHHPNkcyJzYJOSBt9G0Zb0ZBI8KHdyZbJeUY5ZeZIDSy6bCg8s.
 
 .. code-block:: yaml
 
