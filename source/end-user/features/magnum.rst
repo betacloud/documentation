@@ -31,13 +31,13 @@ image, with the ``os_distro`` property set to ``fedora-atomic``.
        --dns-nameserver 9.9.9.9 \
        --docker-volume-size 10 \
        --external-network public \
-       --flavor 1C-1GB-10GB \
-       --image 'Fedora Atomic Host 27' \
+       --flavor 2C-16GB-20GB \
+       --image 'Fedora Atomic Host 29' \
        --labels docker_volume_type=ceph-1,prometheus_monitoring=True \
        --master-flavor 1C-1GB-10GB \
        --master-lb-enabled \
        --network-driver flannel \
-       'Fedora Atomic Host 27 - Kubernetes'
+       'Fedora Atomic Host 29 - Kubernetes'
 
 .. note::
 
@@ -53,13 +53,13 @@ Create a cluster
    +--------------------------------------+------------------------------------+
    | uuid                                 | name                               |
    +--------------------------------------+------------------------------------+
-   | 52edf7fb-d61a-4311-a99e-6d2f5c005a03 | Fedora Atomic Host 27 - Kubernetes |
+   | 52edf7fb-d61a-4311-a99e-6d2f5c005a03 | Fedora Atomic Host 29 - Kubernetes |
    +--------------------------------------+------------------------------------+
 
 .. code-block:: console
 
    $ openstack coe cluster create \
-       --cluster-template 'Fedora Atomic Host 27 - Kubernetes' \
+       --cluster-template 'Fedora Atomic Host 29 - Kubernetes' \
        --keypair KEYPAIR \
        --master-count 1 \
        --node-count 2 \
