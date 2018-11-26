@@ -91,6 +91,7 @@ Usage
 
      $ kubectl cluster-info
      Kubernetes master is running at https://a.b.c.d:6443
+     Heapster is running at https://a.b.c.d:6443/api/v1/namespaces/kube-system/services/heapster/proxy
      CoreDNS is running at https://a.b.c.d:6443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 
      To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
