@@ -17,7 +17,10 @@ Betacloud uses OpenStack Queens with Ceph Luminous.
 .. toctree::
    :maxdepth: 2
 
-   end-user
+   generic
+   features
+   frameworks
+   integration
    appendix
 
 The documentation is maintained on GitHub: https://github.com/betacloud/documentation.
