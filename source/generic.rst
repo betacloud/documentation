@@ -7,6 +7,7 @@ Generic
 
    generic/authentication
    generic/cloud-init
+   generic/documentation
    generic/images
    generic/network
    generic/openstackclient
