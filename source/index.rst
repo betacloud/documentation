@@ -18,7 +18,6 @@ Betacloud uses OpenStack Queens with Ceph Luminous.
    :maxdepth: 2
 
    end-user
-   operations
    appendix
 
 The documentation is maintained on GitHub: https://github.com/betacloud/documentation.
