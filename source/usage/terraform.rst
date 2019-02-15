@@ -15,7 +15,7 @@ OpenStack Provider
 
 * Create a ``modules.tf`` file and define the OpenStack provider
 
-.. code-block:: json
+.. code-block:: none
 
    provider "openstack" {
      user_name   = "USERNAME"
@@ -30,7 +30,7 @@ OpenStack Provider
 
 * Or you can use a clouds.yml file (see Authentication chapter) to provide access to the OpenStack client
 
-.. code-block:: json
+.. code-block:: none
 
    provider "openstack" {
      cloud = "example_cloud"
@@ -48,7 +48,7 @@ OpenStack Resource
 
 * Create a ``main.tf`` file below the sample directory
 
-.. code-block:: json
+.. code-block:: none
 
    variable "count" {
      default = 1
@@ -58,7 +58,7 @@ OpenStack Resource
 
 * https://www.terraform.io/docs/providers/openstack/r/compute_keypair_v2.html
 
-.. code-block:: json
+.. code-block:: none
 
    resource "openstack_compute_keypair_v2" "betacloud-key" {
      name       = "betacloud-key"
@@ -69,7 +69,7 @@ OpenStack Resource
 
 * https://www.terraform.io/docs/providers/openstack/r/compute_floatingip_v2.html
 
-.. code-block:: json
+.. code-block:: none
 
    resource "openstack_networking_floatingip_v2" "fip_1" {
      count = "${var.count ? 1 : 0}"
@@ -80,7 +80,7 @@ OpenStack Resource
 
 * https://www.terraform.io/docs/providers/openstack/r/compute_floatingip_associate_v2.html
 
-.. code-block:: json
+.. code-block:: none
 
    resource "openstack_compute_floatingip_associate_v2" "fip_1" {
      count       = "${var.count ? 1 : 0}"
@@ -92,7 +92,7 @@ OpenStack Resource
 
 * https://www.terraform.io/docs/providers/openstack/r/compute_instance_v2.html
 
-.. code-block:: json
+.. code-block:: none
 
    resource "openstack_compute_instance_v2" "sample" {
      count           = "${var.count ? 1 : 0}"
@@ -111,7 +111,7 @@ Variables
 
 * Create a ``variables.tf`` file below the sample directory
 
-.. code-block:: json
+.. code-block:: none
 
    variable "openstack_network" {
        description = "The network to be used."
@@ -135,7 +135,7 @@ Variables
 
 .. note::
 
-The variables must be adjusted according to the project used.
+   The variables must be adjusted according to the project used.
 
 Start the deployment
 ====================
