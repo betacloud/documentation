@@ -2,6 +2,11 @@
 Images
 ======
 
+The images made available on the betacloud are maintained via
+the repository `betacloud/images <https://github.com/betacloud/images>`_.
+
+The following images are currently available.
+
 ============================  ============  ==============
 Name                          Login user    Password
 ============================  ============  ==============
