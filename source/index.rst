@@ -2,7 +2,7 @@
 Betacloud
 =========
 
-The Betacloud is a public cloud, managed by the OpenStack Infrastructure &
+The Betacloud is a public cloud, managed by the Open Source Infrastructure &
 Service Manager (OSISM), for our customers. We use the Betacloud ourselves
 to provide lab and testbed projects as well as the continuous integration (CI)
 of our Ansible roles and Docker images. Further details about Betacloud can be
