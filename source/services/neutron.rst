@@ -1,9 +1,12 @@
-========
-Features
-========
+=======
+Neutron
+=======
 
-.. toctree::
-   :maxdepth: 2
+FWaaS
+=====
 
-   neutron/fwaas
-   neutron/lbaas
+LBaaS
+=====
+
+VPNaaS
+======
