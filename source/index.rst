@@ -14,6 +14,9 @@ https://osism.io.
 
 Betacloud uses OpenStack Queens with Ceph Luminous.
 
+The documentation is maintained on GitHub: https://github.com/betacloud/documentation.
+There you can open issues for found errors and so on.
+
 .. toctree::
    :maxdepth: 2
 
@@ -21,6 +24,3 @@ Betacloud uses OpenStack Queens with Ceph Luminous.
    services
    usage
    appendix
-
-The documentation is maintained on GitHub: https://github.com/betacloud/documentation.
-There you can open issues for found errors and so on.
