@@ -12,6 +12,8 @@ OSISM is an Ansible & Docker based deployment framework for managing OpenStack,
 Ceph, and necessary services. Further details about OSISM can be found on
 https://osism.io.
 
+Betacloud uses OpenStack Queens with Ceph Luminous.
+
 .. toctree::
    :maxdepth: 2
 
