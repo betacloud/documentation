@@ -19,8 +19,7 @@ Betacloud uses OpenStack Queens with Ceph Luminous.
 
    generic
    services
-   frameworks
-   integration
+   usage
    appendix
 
 The documentation is maintained on GitHub: https://github.com/betacloud/documentation.
