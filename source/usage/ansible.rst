@@ -5,18 +5,18 @@ Ansible
 Preparations
 ============
 
-* Prepare virtual environment
+* Prepare a virtual environment
 
 .. code-block:: none
 
-   $ virtualenv .venv
+   $ virtualenv -p python3 .venv
    $ source .venv/bin/activate
-   $ pip install ansible shade
+   $ pip install ansible openstacksdk
 
-* Create a ``clouds.yml`` file (see `Authentication` chapter)
+* Create a ``clouds.yml`` and ``secure.yml`` file (see :ref:`Authentication` chapter)
 
-OpenStack modules
-=================
+Modules
+=======
 
 * http://docs.ansible.com/ansible/latest/list_of_cloud_modules.html#openstack
 
@@ -30,37 +30,108 @@ OpenStack modules
      gather_facts: no
 
      tasks:
-     - name: Start instance
+
+   # NOTE: Ansible >= 2.8
+   #  - name: Generate local keypair
+   #    openssh_keypair:
+   #      path: id_rsa.sample
+   #      size: 2048
+   #      comment: ""
+
+   # NOTE: Ansible <= 2.7
+     - name: Generate local keypair
+       command : ssh-keygen -t rsa -b 2048 -N "" -C "" -f id_rsa.sample
+       args:
+	 creates: id_rsa.sample
+
+     - name: Create keypair
+       os_keypair:
+	 cloud: sample
+	 name: sample
+	 public_key_file: id_rsa.sample.pub
+	 state: present
+
+     - name: Create security group
+       os_security_group:
+	 cloud: sample
+	 name: sample
+	 state: present
+
+     - name: Create security group rule - ICMP
+       os_security_group_rule:
+	 cloud: sample
+	 security_group: sample
+	 protocol: icmp
+	 port_range_min: -1
+	 port_range_max: -1
+	 remote_ip_prefix: 0.0.0.0/0
+
+     - name: Create security group rule - SSH
+       os_security_group_rule:
+	 cloud: sample
+	 security_group: sample
+	 protocol: tcp
+	 port_range_min: 22
+	 port_range_max: 22
+	 remote_ip_prefix: 0.0.0.0/0
+
+     - name: Create network
+       os_network:
+	 cloud: sample
+	 name: sample
+	 state: present
+
+     - name: Create sub network
+       os_subnet:
+	 cloud: sample
+	 network_name: sample
+	 name: sample
+	 cidr: 192.168.0.0/24
+	 state: present
+
+     - name: Create router
+       os_router:
+	 cloud: sample
+	 name: sample
+	 network: public
+	 interfaces:
+	   - sample
+	 state: present
+
+     - name: Create instance
        os_server:
-         cloud: sample
-         name: sample
-         flavor: 1C-1GB-10GB
-         image: "Ubuntu 16.04 (Xenial Xerus)"
-         key_name: samplekey
-         security_groups:
-           - default
-         floating_ip_pools: public
-         delete_fip: yes
-         state: present
+	 cloud: sample
+	 name: sample
+	 flavor: 1C-1GB-10GB
+	 image: "Ubuntu 18.04"
+	 key_name: sample
+	 network: sample
+	 security_groups:
+	   - sample
+	 floating_ip_pools: public
+	 delete_fip: yes
+	 state: present
+
+     - name: Create volume
+       os_volume:
+	 cloud: sample
+	 size: 5
+	 display_name: sample
+	 state: present
+
+     - name: Attach volume
+       os_server_volume:
+	 cloud: sample
+	 server: sample
+	 volume: sample
+	 state: present
 
 .. note::
 
-   ``floating_ip_pools`` must be adjusted according to the domain used. Except in the domain ``default``,
-   the public pool is ``DOMAINNAME-public``.
+   ``floating_ip_pools`` must be adjusted according to the domain used. Except
+   in the domain ``default``, the public pool is ``DOMAINNAME-public``.
 
-* Start the playbook now
-
-.. code-block: none
-
-   $ ansible-playbook playbook.yml -i localhost,
-
-   PLAY [localhost] **********************************************************
-
-   TASK [Start instance] *****************************************************
-   changed: [localhost]
-
-   PLAY RECAP ****************************************************************
-   localhost                  : ok=1    changed=1    unreachable=0    failed=0
+* Run the playbook with ``ansible-playbook playbook.yml``
 
 Inventory
 =========
