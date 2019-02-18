@@ -2,6 +2,8 @@
 Magnum
 ======
 
+.. contents::
+
 Magnum is an OpenStack API service developed by the OpenStack Containers Team
 making container orchestration engines (COE) such as Docker Swarm, Kubernetes
 and Apache Mesos available as the first class resources in OpenStack.

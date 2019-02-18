@@ -2,6 +2,8 @@
 Packer
 ======
 
+.. contents::
+
 * https://www.packer.io/docs/builders/openstack.html
 
 Packer is a tool for building identical machine images for multiple

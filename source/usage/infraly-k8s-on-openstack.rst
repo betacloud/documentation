@@ -2,6 +2,8 @@
 k8s-on-openstack
 ================
 
+.. contents::
+
 * https://github.com/infraly/k8s-on-openstack/
 
 An opinionated way to deploy a Kubernetes cluster on top of an OpenStack cloud.

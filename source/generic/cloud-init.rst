@@ -2,6 +2,8 @@
 cloud-init
 ==========
 
+.. contents::
+
 * http://cloudinit.readthedocs.io/en/latest/
 
 With ``cloud-init`` instances can be configured at boot-time. Arbitrary scripts

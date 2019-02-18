@@ -2,6 +2,8 @@
 Terraform
 =========
 
+.. contents::
+
 * https://www.terraform.io
 
 Terraform is an open source tool from ``HashiCorp`` that can be used to create and manage 

@@ -4,6 +4,8 @@
 Authentication
 ==============
 
+.. contents::
+
 clouds.yaml
 ===========
 
