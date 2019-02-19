@@ -15,7 +15,7 @@ Preparations
    $ source .venv/bin/activate
    $ pip install ansible openstacksdk
 
-* Create a ``clouds.yml`` and ``secure.yml`` file (see :ref:`Authentication` chapter)
+* Create a ``clouds.yaml`` and ``secure.yaml`` file (see :ref:`Authentication` chapter)
 
 Modules
 =======
