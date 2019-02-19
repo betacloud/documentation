@@ -5,6 +5,8 @@ Network
 Shared VIPs for clustered services
 ==================================
 
+* https://docs.catalystcloud.io/tutorials/deploying-highly-available-instances-with-keepalived.html
+
 To create a shared VIP to use e.g. within a pacemaker cluster, do the following.
 
 
