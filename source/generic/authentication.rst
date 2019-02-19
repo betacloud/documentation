@@ -42,9 +42,9 @@ With vendor profile
 Below is a ``clouds.yaml`` example file to access project PROJECT with user USERNAME.
 
 It is possible to define multiple accesses in one file. Therefore every entry is assigned a
-``NAME``.
+name like ``betacloud``.
 
-To use access ``NAME`` with the OpenStack client, it is called with ``openstack --os-cloud NAME``.
+To use access ``betacloud`` with the OpenStack client, it is called with ``openstack --os-cloud betacloud``.
 If only one entry is listed in the file you can omit the parameter.
 
 * ``clouds.yaml``
@@ -53,7 +53,7 @@ If only one entry is listed in the file you can omit the parameter.
 
      ---
      clouds:
-       NAME:
+       betacloud:
          profile: betacloud
          auth:
            username: USERNAME
@@ -66,7 +66,7 @@ If only one entry is listed in the file you can omit the parameter.
   .. code-block:: yaml
 
      clouds:
-       NAME:
+       betacloud:
          auth:
            password: PASSWORD
 
@@ -88,7 +88,7 @@ Alternatively, this file can be used. No vendor profile is used here.
 
      ---
      clouds:
-       NAME:
+       betacloud:
          auth:
            auth_url: https://api-1.betacloud.io:5000/v3
            username: USERNAME
@@ -105,7 +105,7 @@ Alternatively, this file can be used. No vendor profile is used here.
 
      ---
      clouds:
-       NAME:
+       betacloud:
          auth:
            password: PASSWORD
 
