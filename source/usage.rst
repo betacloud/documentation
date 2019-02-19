@@ -25,6 +25,7 @@ Frameworks
 .. toctree::
    :maxdepth: 2
 
+   usage/kubespray
    usage/infraly-k8s-on-openstack
 
 Integrations
