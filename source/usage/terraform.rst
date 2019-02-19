@@ -28,8 +28,7 @@ Provider
        source = "modules/sample"
      }
 
-* Or use a ``clouds.yaml`` and ``secure.yaml`` file to provide
-  access to the OpenStack environment (see :ref:`Authentication` chapter)
+* Or create a ``clouds.yaml`` and ``secure.yaml`` file (see :ref:`Authentication` chapter)
 
   .. code-block:: none
 
