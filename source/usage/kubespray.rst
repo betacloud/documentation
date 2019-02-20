@@ -196,7 +196,7 @@ Scale down (worker nodes only)
        --become \
        -i inventory/mycluster/hosts \
        -e ansible_ssh_private_key_file=inventory/mycluster/id_rsa.mycluster \
-       -l mycluster-k8s-node-nf-6 \
+       -e node=mycluster-k8s-node-nf-6 \
        remove-node.yml
 
 .. code-block:: console
