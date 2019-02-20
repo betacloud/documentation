@@ -161,6 +161,11 @@ Scale up (worker, master or etcd nodes)
 * Adjust ``inventory/mycluster/cluster.tf`` and apply changes with
   ``terraform apply -var-file=cluster.tf contrib/terraform/openstack``
 
+  .. code-block:: none
+
+     # number_of_k8s_nodes_no_floating_ip = 4
+     number_of_k8s_nodes_no_floating_ip = 6
+
 .. code-block:: console
 
    $ ansible-playbook \
@@ -169,11 +174,21 @@ Scale up (worker, master or etcd nodes)
        -e ansible_ssh_private_key_file=inventory/mycluster/id_rsa.mycluster \
        scale.yml
 
+.. code-block:: console
+
+   $ cd inventory/mycluster/artifacts
+   $ ./kubectl.sh get nodes
+   NAME                        STATUS    ROLES     AGE       VERSION
+   mycluster-k8s-master-nf-1   Ready     master    102m      v1.13.3
+   mycluster-k8s-node-nf-1     Ready     node      100m      v1.13.3
+   mycluster-k8s-node-nf-2     Ready     node      100m      v1.13.3
+   mycluster-k8s-node-nf-3     Ready     node      100m      v1.13.3
+   mycluster-k8s-node-nf-4     Ready     node      100m      v1.13.3
+   mycluster-k8s-node-nf-5     Ready     node      13m       v1.13.3
+   mycluster-k8s-node-nf-6     Ready     node      13m       v1.13.3
+
 Scale down (worker nodes only)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-* Adjust ``inventory/mycluster/cluster.tf`` and apply changes with
-  ``terraform apply -var-file=cluster.tf contrib/terraform/openstack``
 
 .. code-block:: console
 
@@ -181,7 +196,28 @@ Scale down (worker nodes only)
        --become \
        -i inventory/mycluster/hosts \
        -e ansible_ssh_private_key_file=inventory/mycluster/id_rsa.mycluster \
+       -l mycluster-k8s-node-nf-6 \
        remove-node.yml
+
+.. code-block:: console
+
+   $ cd inventory/mycluster/artifacts
+   $ ./kubectl.sh get nodes
+   NAME                        STATUS    ROLES     AGE       VERSION
+   mycluster-k8s-master-nf-1   Ready     master    112m      v1.13.3
+   mycluster-k8s-node-nf-1     Ready     node      110m      v1.13.3
+   mycluster-k8s-node-nf-2     Ready     node      110m      v1.13.3
+   mycluster-k8s-node-nf-3     Ready     node      110m      v1.13.3
+   mycluster-k8s-node-nf-4     Ready     node      110m      v1.13.3
+   mycluster-k8s-node-nf-5     Ready     node      23m       v1.13.3
+
+* Adjust ``inventory/mycluster/cluster.tf`` and apply changes with
+  ``terraform apply -var-file=cluster.tf contrib/terraform/openstack``
+
+  .. code-block:: none
+
+     # number_of_k8s_nodes_no_floating_ip = 6
+     number_of_k8s_nodes_no_floating_ip = 5
 
 Kubernetes
 ----------
@@ -195,11 +231,11 @@ Kubernetes
    $ cd inventory/mycluster/artifacts
    $ ./kubectl.sh get nodes
    NAME                        STATUS    ROLES     AGE       VERSION
-   mycluster-k8s-master-nf-1   Ready     master    121m      v1.13.3
-   mycluster-k8s-node-nf-1     Ready     node      120m      v1.13.3
-   mycluster-k8s-node-nf-2     Ready     node      120m      v1.13.3
-   mycluster-k8s-node-nf-3     Ready     node      120m      v1.13.3
-   mycluster-k8s-node-nf-4     Ready     node      120m      v1.13.3
+   mycluster-k8s-master-nf-1   Ready     master    61m       v1.13.3
+   mycluster-k8s-node-nf-1     Ready     node      60m       v1.13.3
+   mycluster-k8s-node-nf-2     Ready     node      60m       v1.13.3
+   mycluster-k8s-node-nf-3     Ready     node      60m       v1.13.3
+   mycluster-k8s-node-nf-4     Ready     node      60m       v1.13.3
 
 .. code-block:: console
 
