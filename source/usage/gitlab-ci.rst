@@ -1,3 +1,3 @@
 =========
-GltLab CI
+GitLab CI
 =========
