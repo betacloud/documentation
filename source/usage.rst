@@ -46,6 +46,14 @@ Infrastructure as code
    usage/pulumi
    usage/terraform
 
+SDKs
+====
+
+.. toctree::
+   :maxdepth: 2
+
+   usage/openstacksdk
+
 Other
 =====
 
