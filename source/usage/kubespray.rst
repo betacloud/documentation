@@ -84,6 +84,8 @@ Ansible
      kubeconfig_localhost: true
      kubectl_localhost: true
 
+     kube_network_plugin: flannel
+
 * Adjust ``inventory/mycluster/group_vars/all/all.yml`` if necessary
 
 * Add a ``log_path`` to the ``ansible.cfg`` configuration file
