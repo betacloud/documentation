@@ -200,3 +200,49 @@ Kubernetes
    mycluster-k8s-node-nf-2     Ready     node      120m      v1.13.3
    mycluster-k8s-node-nf-3     Ready     node      120m      v1.13.3
    mycluster-k8s-node-nf-4     Ready     node      120m      v1.13.3
+
+.. code-block:: console
+
+   $ ./kubectl.sh run hello-world \
+       --replicas=2 \
+       --labels="run=load-balancer-example" \
+       --image=gcr.io/google-samples/node-hello:1.0 \
+       --port=8080
+   deployment.apps/hello-world created
+
+.. code-block:: console
+
+   $ ./kubectl.sh expose deployment hello-world \
+       --type=NodePort \
+       --name=example-service
+   service/example-service exposed
+
+.. code-block:: console
+
+   $ ./kubectl.sh get pods
+   NAME                           READY     STATUS    RESTARTS   AGE
+   hello-world-696b6b59bd-7d8md   1/1       Running   0          3m24s
+   hello-world-696b6b59bd-bz64c   1/1       Running   0          3m24s
+
+.. code-block:: console
+
+   $ ./kubectl.sh describe services example-service
+   Name:                     example-service
+   Namespace:                default
+   Labels:                   run=load-balancer-example
+   Annotations:              <none>
+   Selector:                 run=load-balancer-example
+   Type:                     NodePort
+   IP:                       10.233.1.98
+   Port:                     <unset>  8080/TCP
+   TargetPort:               8080/TCP
+   NodePort:                 <unset>  32732/TCP
+   Endpoints:                <none>
+   Session Affinity:         None
+   External Traffic Policy:  Cluster
+   Events:                   <none>
+
+.. code-block:: console
+
+   $ curl MASTER_ADDRESS:32732
+   Hello Kubernetes!
