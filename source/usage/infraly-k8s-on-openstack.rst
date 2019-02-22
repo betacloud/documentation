@@ -3,6 +3,7 @@ k8s-on-openstack
 ================
 
 .. contents::
+   :local:
 
 * https://github.com/infraly/k8s-on-openstack/
 

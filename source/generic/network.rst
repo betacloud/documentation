@@ -3,6 +3,7 @@ Network
 =======
 
 .. contents::
+   :local:
 
 sshuttle - poor man’s VPN 
 =========================

@@ -3,6 +3,7 @@ Terraform
 =========
 
 .. contents::
+   :local:
 
 * https://www.terraform.io
 

@@ -3,6 +3,7 @@ cloud-init
 ==========
 
 .. contents::
+   :local:
 
 * http://cloudinit.readthedocs.io/en/latest/
 

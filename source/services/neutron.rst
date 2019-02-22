@@ -3,6 +3,7 @@ Neutron
 =======
 
 .. contents::
+   :local:
 
 Shared VIPs for clustered services
 ==================================

@@ -5,6 +5,7 @@ Authentication
 ==============
 
 .. contents::
+   :local:
 
 clouds.yaml
 ===========

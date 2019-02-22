@@ -3,6 +3,7 @@ Packer
 ======
 
 .. contents::
+   :local:
 
 * https://www.packer.io/docs/builders/openstack.html
 

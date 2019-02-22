@@ -3,6 +3,7 @@ Ansible
 =======
 
 .. contents::
+   :local:
 
 Preparations
 ============

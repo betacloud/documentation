@@ -3,6 +3,7 @@ Magnum
 ======
 
 .. contents::
+   :local:
 
 Magnum is an OpenStack API service developed by the OpenStack Containers Team
 making container orchestration engines (COE) such as Docker Swarm, Kubernetes

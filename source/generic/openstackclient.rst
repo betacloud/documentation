@@ -3,6 +3,7 @@ OpenStackClient
 ===============
 
 .. contents::
+   :local:
 
 OpenStackClient (aka OSC) is a command-line client for OpenStack that brings the command set for
 Compute, Identity, Image, Object Store and Block Storage APIs together in a single shell with a

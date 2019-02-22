@@ -3,6 +3,7 @@ Kubespray
 =========
 
 .. contents::
+   :local:
 
 * https://github.com/kubernetes-sigs/kubespray
 
