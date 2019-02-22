@@ -18,7 +18,7 @@ The documentation is maintained on GitHub: https://github.com/betacloud/document
 There you can open issues for found errors and so on.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    generic
    services
