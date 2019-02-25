@@ -5,6 +5,14 @@ Ansible
 .. contents::
    :local:
 
+.. note::
+
+   We are part of the OpenStack Working Group of Ansible [#s1]_ and actively participate
+   in the further development of the Ansible OpenStack modules
+
+   In case of missing functions in one of the OpenStack Ansible modules or if you want
+   a new module, please send a mail to info@betacloud-solutions.de.
+
 Preparations
 ============
 
@@ -173,3 +181,5 @@ Inventory plugin
 
 * https://docs.ansible.com/ansible/latest/plugins/inventory.html
 * https://docs.ansible.com/ansible/latest/plugins/inventory/openstack.html
+
+.. [#s1] https://github.com/ansible/community/wiki/OpenStack
