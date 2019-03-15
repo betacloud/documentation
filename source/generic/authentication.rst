@@ -117,6 +117,29 @@ Alternatively, this file can be used. No vendor profile is used here.
    If you login to Horizon with the domain ``COMPANY`` you have to use ``COMPANY``
    instead of ``default``.
 
+With a token
+------------
+
+You can get a token from keystone for authentication instead of using username and password. Tokens are valid for 24h.
+
+Below is an example ``clouds.yaml`` with authentication using a token.
+
+* ``clouds.yaml``
+
+  .. code-block:: yaml
+
+    ---
+    clouds:
+      betacloud-token:
+        auth_type: token
+        auth:
+          auth_url: https://api-1.betacloud.io:5000/v3
+          preoject_id: ID
+          project_name: PROJECT
+          token: TOKEN
+
+You can generate the token with ``openstack --os-cloud betacloud token issue``.
+
 .. note::
 
    Apart from the OpenStackClient, other clients do not yet support ``clouds.yaml``
