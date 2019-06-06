@@ -61,3 +61,17 @@ LBaaS
 
 VPNaaS
 ======
+
+Routing foreign IPs (e.g. VPN)
+==============================
+
+If you have a VPN connection that you would like to route into your local
+network, you'll have to add the IP (or network) to the 'allowed addresses' of
+the port corresponding to your instance.
+
+If you do not allow the address, it will be blocked, as OpenStack by default
+only allows the recognized MAC address plus any configured subnets.
+
+   .. code-block:: console
+
+      $ openstack port set <PORT-ID> --allowed-address ip-address=10.1.2.0/24
