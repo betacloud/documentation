@@ -47,51 +47,6 @@ Provider
 
      $ mkdir -p modules/sample
 
-Resources
-========= 
-
-* Create a ``main.tf`` file below the sample module directory
-
-* Create a SSH key pair (https://www.terraform.io/docs/providers/openstack/r/compute_keypair_v2.html)
-
-  .. code-block:: none
-
-     resource "openstack_compute_keypair_v2" "sample" {
-       name = "sample"
-     }
-
-* Define a floating IP address resource (https://www.terraform.io/docs/providers/openstack/d/networking_floatingip_v2.html)
-
-  .. code-block:: none
-
-     resource "openstack_networking_floatingip_v2" "sample" {
-       pool  = "${var.pool}"
-     }
-
-* Associate the floting IP address resource (https://www.terraform.io/docs/providers/openstack/r/compute_floatingip_associate_v2.html)
-
-  .. code-block:: none
-
-     resource "openstack_compute_floatingip_associate_v2" "sample" {
-       floating_ip = "${openstack_networking_floatingip_v2.sample.address}"
-       instance_id = "${openstack_compute_instance_v2.sample.id}"
-     }
-
-* Create an instance resource (https://www.terraform.io/docs/providers/openstack/r/compute_instance_v2.html)
-
-  .. code-block:: none
-
-     resource "openstack_compute_instance_v2" "sample" {
-       name            = "sample"
-       image_name      = "${var.image}"
-       flavor_name     = "${var.flavor}"
-       key_pair        = "${openstack_compute_keypair_v2.sample.name}"
-       security_groups = ["default"]
-       network {
-         name = "${var.openstack_network}"
-       }
-     }
-
 Variables
 =========
 
@@ -113,6 +68,51 @@ Variables
 
      variable "image" {
        default  = "Ubuntu 18.04"
+     }
+
+Resources
+========= 
+
+* Create a ``main.tf`` file below the sample module directory
+
+* Create a SSH key pair (https://www.terraform.io/docs/providers/openstack/r/compute_keypair_v2.html)
+
+  .. code-block:: none
+
+     resource "openstack_compute_keypair_v2" "sample" {
+       name = "sample"
+     }
+
+* Define a floating IP address resource (https://www.terraform.io/docs/providers/openstack/d/networking_floatingip_v2.html)
+
+  .. code-block:: none
+
+     resource "openstack_networking_floatingip_v2" "sample" {
+       pool  = "${var.pool}"
+     }
+
+* Create an instance resource (https://www.terraform.io/docs/providers/openstack/r/compute_instance_v2.html)
+
+  .. code-block:: none
+
+     resource "openstack_compute_instance_v2" "sample" {
+       name            = "sample"
+       image_name      = "${var.image}"
+       flavor_name     = "${var.flavor}"
+       key_pair        = "${openstack_compute_keypair_v2.sample.name}"
+       security_groups = ["default"]
+       network {
+         name = "${var.openstack_network}"
+       }
+     }
+
+* Associate the floating IP address resource (https://www.terraform.io/docs/providers/openstack/r/compute_floatingip_associate_v2.html)
+
+  .. code-block:: none
+
+     resource "openstack_compute_floatingip_associate_v2" "sample" {
+       floating_ip = "${openstack_networking_floatingip_v2.sample.address}"
+       instance_id = "${openstack_compute_instance_v2.sample.id}"
      }
 
 Start the deployment
