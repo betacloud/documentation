@@ -145,3 +145,8 @@ In the ``variables.tf`` file you defined variables, all of which have a default 
      flavor = "2C-2GB-20GB"
 
 Terraform will automatically use your new value and create a larger instance. If you remove the ``terraform.tfvars`` file again and create another instance, it will again use the default set in ``variables.tf``.
+
+Regarding the tfstate files
+===========================
+
+After you have successfully created your resources, you will notice a ``terraform.tfstate`` file (and some others of the same kind) in your working directory. Those files are where terraform keeps track of which resources you actually have. This file will be refreshed at each start of a terraform run, but nevertheless should *never* be deleted.
