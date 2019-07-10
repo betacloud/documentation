@@ -133,3 +133,15 @@ state information  stored by Terraform.
 After checking the plan, the configuration can be carried  out with
 ``terraform apply``. The instance can easily be deleted using the
 ``terraform destroy`` command.
+
+Adjust the defaults
+====================
+
+In the ``variables.tf`` file you defined variables, all of which have a default value. You can override these defaults by creating a ``terraform.tfvars`` file, setting one or more of the variables to a different value:
+
+  .. code-block:: none
+
+     # use a larger flavor
+     flavor = "2C-2GB-20GB"
+
+Terraform will automatically use your new value and create a larger instance. If you remove the ``terraform.tfvars`` file again and create another instance, it will again use the default set in ``variables.tf``.
