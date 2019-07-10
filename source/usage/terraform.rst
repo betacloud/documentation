@@ -55,19 +55,23 @@ Variables
   .. code-block:: none
 
      variable "network" {
-       default  = "sample"
+       description = "The default name for the new network"
+       default     = "sample"
      }
 
      variable "pool" {
-       default  = "public"
+       description = "The default pool where the floating IPs are taken from"
+       default     = "public"
      }
 
      variable "flavor" {
-       default  = "1C-1GB-10GB"
+       description = "The default flavor of the new instance"
+       default     = "1C-1GB-10GB"
      }
 
      variable "image" {
-       default  = "Ubuntu 18.04"
+       description = "The default image used to create the new instance"
+       default     = "Ubuntu 18.04"
      }
 
 Resources
