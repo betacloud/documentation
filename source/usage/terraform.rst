@@ -47,6 +47,33 @@ Provider
 
      $ mkdir -p modules/sample
 
+Variables
+=========
+
+* Create a ``variables.tf`` file below the sample module directory
+
+  .. code-block:: none
+
+     variable "network" {
+       description = "The default name for the new network"
+       default     = "sample"
+     }
+
+     variable "pool" {
+       description = "The default pool where the floating IPs are taken from"
+       default     = "public"
+     }
+
+     variable "flavor" {
+       description = "The default flavor of the new instance"
+       default     = "1C-1GB-10GB"
+     }
+
+     variable "image" {
+       description = "The default image used to create the new instance"
+       default     = "Ubuntu 18.04"
+     }
+
 Resources
 ========= 
 
@@ -68,15 +95,6 @@ Resources
        pool  = "${var.pool}"
      }
 
-* Associate the floting IP address resource (https://www.terraform.io/docs/providers/openstack/r/compute_floatingip_associate_v2.html)
-
-  .. code-block:: none
-
-     resource "openstack_compute_floatingip_associate_v2" "sample" {
-       floating_ip = "${openstack_networking_floatingip_v2.sample.address}"
-       instance_id = "${openstack_compute_instance_v2.sample.id}"
-     }
-
 * Create an instance resource (https://www.terraform.io/docs/providers/openstack/r/compute_instance_v2.html)
 
   .. code-block:: none
@@ -92,27 +110,13 @@ Resources
        }
      }
 
-Variables
-=========
-
-* Create a ``variables.tf`` file below the sample module directory
+* Associate the floating IP address resource (https://www.terraform.io/docs/providers/openstack/r/compute_floatingip_associate_v2.html)
 
   .. code-block:: none
 
-     variable "network" {
-       default  = "sample"
-     }
-
-     variable "pool" {
-       default  = "public"
-     }
-
-     variable "flavor" {
-       default  = "1C-1GB-10GB"
-     }
-
-     variable "image" {
-       default  = "Ubuntu 18.04"
+     resource "openstack_compute_floatingip_associate_v2" "sample" {
+       floating_ip = "${openstack_networking_floatingip_v2.sample.address}"
+       instance_id = "${openstack_compute_instance_v2.sample.id}"
      }
 
 Start the deployment
@@ -129,3 +133,20 @@ state information  stored by Terraform.
 After checking the plan, the configuration can be carried  out with
 ``terraform apply``. The instance can easily be deleted using the
 ``terraform destroy`` command.
+
+Adjust the defaults
+====================
+
+In the ``variables.tf`` file you defined variables, all of which have a default value. You can override these defaults by creating a ``terraform.tfvars`` file, setting one or more of the variables to a different value:
+
+  .. code-block:: none
+
+     # use a larger flavor
+     flavor = "2C-2GB-20GB"
+
+Terraform will automatically use your new value and create a larger instance. If you remove the ``terraform.tfvars`` file again and create another instance, it will again use the default set in ``variables.tf``.
+
+Regarding the tfstate files
+===========================
+
+After you have successfully created your resources, you will notice a ``terraform.tfstate`` file (and some others of the same kind) in your working directory. Those files are where terraform keeps track of which resources you actually have. This file will be refreshed at each start of a terraform run, but nevertheless should *never* be deleted.
