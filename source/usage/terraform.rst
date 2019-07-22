@@ -146,6 +146,22 @@ In the ``variables.tf`` file you defined variables, all of which have a default 
 
 Terraform will automatically use your new value and create a larger instance. If you remove the ``terraform.tfvars`` file again and create another instance, it will again use the default set in ``variables.tf``.
 
+Adding output for the user
+==========================
+
+To have terraform return some information that the user might need (e.g. floating IPs, hostnames), create outputs in a file called e.g. ``outputs.tf``:
+
+  .. code-block:: none
+
+     output "instance_names" {
+       value = "${openstack_compute_instance_v2.sample.*.name}"
+     }
+     output "floating_ips" {
+       value = "${openstack_networking_floatingip_v2.sample.*.address}"
+     }
+
+This example will return the names and floating IPs for all of the instances you create.
+
 Regarding the tfstate files
 ===========================
 
