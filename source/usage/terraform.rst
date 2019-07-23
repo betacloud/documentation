@@ -172,48 +172,50 @@ Examples
 
 If you need to have two additional disks in your instances, try something like this:
 
-in `variables.tf`
-```
-variable volume_size" {
-  description = "Size of the additional block devices (in GB)"
-  size        = 1
-}
-```
+* in ``variables.tf``
 
-in `main.tf`
-```
-# Create the instances
-resource "openstack_compute_instance_v2" "my_instances" {
-  count           = "${var.instance_count}"
-  name            = "my_instance_0${count.index + 1}"
-  flavor_name     = "${var.flavor}"
-  image_name      = "${var.image}"
+  .. code-block:: none
 
-  network {
-    uuid = "<enter your network id here>"
-  }
-}
+     variable volume_size" {
+       description = "Size of the additional block devices (in GB)"
+       size        = 1
+     }
 
-# Create two additional volumes for each instance
-# count is ${var.instance_count * 2 }
-resource "openstack_blockstorage_volume_v2" "my_volumes" {
-  count = "${var.instance_count * 2 }"
-  size  = "${var.volume_size}"
-}
+* in ``main.tf``
 
-# Associate the first volume with the instances
-# use count.index*2 to get the first of each pair of volumes
-resource "openstack_compute_volume_attach_v2" "first_volume_association" {
-  count = "${var.instance_count}"
-  instance_id = "${openstack_compute_instance_v2.my_instances[count.index].id}"
-  volume_id = "${openstack_blockstorage_volume_v2.my_volumes[count.index*2].id}"
-} 
+  .. code-block:: none
 
-# Associate the second volume with the instances
-# use count.index*2+1 to get the second of each pair of volumes
-resource "openstack_compute_volume_attach_v2" "second_volume_association" {
-  count = "${var.instance_count}"
-  instance_id = "${openstack_compute_instance_v2.my_instances[count.index].id}"
-  volume_id = "${openstack_blockstorage_volume_v2.my_volumes[count.index*2+1].id}"
-}
-```
+     # Create the instances
+     resource "openstack_compute_instance_v2" "my_instances" {
+       count           = "${var.instance_count}"
+       name            = "my_instance_0${count.index + 1}"
+       flavor_name     = "${var.flavor}"
+       image_name      = "${var.image}"
+
+       network {
+         uuid = "<enter your network id here>"
+       }
+     }
+
+     # Create two additional volumes for each instance
+     # count is ${var.instance_count * 2 }
+     resource "openstack_blockstorage_volume_v2" "my_volumes" {
+       count = "${var.instance_count * 2 }"
+       size  = "${var.volume_size}"
+     }
+
+     # Associate the first volume with the instances
+     # use count.index*2 to get the first of each pair of volumes
+     resource "openstack_compute_volume_attach_v2" "first_volume_association" {
+       count = "${var.instance_count}"
+       instance_id = "${openstack_compute_instance_v2.my_instances[count.index].id}"
+       volume_id = "${openstack_blockstorage_volume_v2.my_volumes[count.index*2].id}"
+     }
+
+     # Associate the second volume with the instances
+     # use count.index*2+1 to get the second of each pair of volumes
+     resource "openstack_compute_volume_attach_v2" "second_volume_association" {
+       count = "${var.instance_count}"
+       instance_id = "${openstack_compute_instance_v2.my_instances[count.index].id}"
+       volume_id = "${openstack_blockstorage_volume_v2.my_volumes[count.index*2+1].id}"
+     }
