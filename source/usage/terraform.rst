@@ -126,11 +126,11 @@ First we initialize the working directory with the ``terraform init`` command
 after writing a new Terraform configuration. This will ensure that Terraform has 
 all the necessary components to build the template in OpenStack.
 
-If the working  directory is initialized, we create an execution plan with
-``terraform plan``.  In this step, the required resources are compared with the
-state information  stored by Terraform.
+If the working directory is initialized, we create an execution plan with
+``terraform plan``. In this step, the required resources are compared with the
+state information stored by Terraform.
 
-After checking the plan, the configuration can be carried  out with
+After checking the plan, the configuration can be carried out with
 ``terraform apply``. The instance can easily be deleted using the
 ``terraform destroy`` command.
 
@@ -146,7 +146,74 @@ In the ``variables.tf`` file you defined variables, all of which have a default 
 
 Terraform will automatically use your new value and create a larger instance. If you remove the ``terraform.tfvars`` file again and create another instance, it will again use the default set in ``variables.tf``.
 
+Adding output for the user
+==========================
+
+To have terraform return some information that the user might need (e.g. floating IPs, hostnames), create outputs in a file called e.g. ``outputs.tf``:
+
+  .. code-block:: none
+
+     output "instance_names" {
+       value = "${openstack_compute_instance_v2.sample.*.name}"
+     }
+     output "floating_ips" {
+       value = "${openstack_networking_floatingip_v2.sample.*.address}"
+     }
+
+This example will return the names and floating IPs for all of the instances you create.
+
 Regarding the tfstate files
 ===========================
 
 After you have successfully created your resources, you will notice a ``terraform.tfstate`` file (and some others of the same kind) in your working directory. Those files are where terraform keeps track of which resources you actually have. This file will be refreshed at each start of a terraform run, but nevertheless should *never* be deleted.
+
+Examples
+========
+
+If you need to have two additional disks in your instances, try something like this:
+
+in `variables.tf`
+```
+variable volume_size" {
+  description = "Size of the additional block devices (in GB)"
+  size        = 1
+}
+```
+
+in `main.tf`
+```
+# Create the instances
+resource "openstack_compute_instance_v2" "my_instances" {
+  count           = "${var.instance_count}"
+  name            = "my_instance_0${count.index + 1}"
+  flavor_name     = "${var.flavor}"
+  image_name      = "${var.image}"
+
+  network {
+    uuid = "<enter your network id here>"
+  }
+}
+
+# Create two additional volumes for each instance
+# count is ${var.instance_count * 2 }
+resource "openstack_blockstorage_volume_v2" "my_volumes" {
+  count = "${var.instance_count * 2 }"
+  size  = "${var.volume_size}"
+}
+
+# Associate the first volume with the instances
+# use count.index*2 to get the first of each pair of volumes
+resource "openstack_compute_volume_attach_v2" "first_volume_association" {
+  count = "${var.instance_count}"
+  instance_id = "${openstack_compute_instance_v2.my_instances[count.index].id}"
+  volume_id = "${openstack_blockstorage_volume_v2.my_volumes[count.index*2].id}"
+} 
+
+# Associate the second volume with the instances
+# use count.index*2+1 to get the second of each pair of volumes
+resource "openstack_compute_volume_attach_v2" "second_volume_association" {
+  count = "${var.instance_count}"
+  instance_id = "${openstack_compute_instance_v2.my_instances[count.index].id}"
+  volume_id = "${openstack_blockstorage_volume_v2.my_volumes[count.index*2+1].id}"
+}
+```
