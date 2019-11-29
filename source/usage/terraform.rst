@@ -167,7 +167,7 @@ Regarding the tfstate files
 
 After you have successfully created your resources, you will notice a ``terraform.tfstate`` file (and some others of the same kind) in your working directory. Those files are where terraform keeps track of which resources you actually have. This file will be refreshed at each start of a terraform run, but nevertheless should *never* be deleted.
 
-Examples
+Example: Instance with additional disks
 ========
 
 If you need to have two additional disks in your instances, try something like this:
@@ -218,4 +218,43 @@ If you need to have two additional disks in your instances, try something like t
        count = "${var.instance_count}"
        instance_id = "${openstack_compute_instance_v2.my_instances[count.index].id}"
        volume_id = "${openstack_blockstorage_volume_v2.my_volumes[count.index*2+1].id}"
+     }
+
+Example: Shared VIPs for clustered services
+========
+
+In case you want to create shared VIPs for use with e.g. pacemaker (the :ref:`Neutron` chapter explains this from an OpenStack perspective), have a look at the following example:
+
+* in ``main.tf``
+
+  .. code-block:: none
+
+     # reserve an IP
+
+     resource "openstack_networking_port_v2" "reserved_port" {
+       name           = "my-reserved-ip"
+       network_id     = ...
+       admin_state_up = "true"
+     }
+
+     resource "openstack_networking_port_v2" "my_instance_port" {
+       name               = "my-instance"
+       network_id         = ...
+       admin_state_up     = true
+       security_group_ids = ...
+
+       allowed_address_pairs {
+         # allow the virtual IP address created above
+         ip_address = openstack_networking_port_v2.reserved_port.all_fixed_ips.0
+       }
+     }
+
+     resource "openstack_compute_instance_v2" "suse-ses-mon-instance" {
+       name            = "my-instance"
+       flavor_name     = ...
+       image_name      = ...
+
+       network {
+         port = openstack_networking_port_v2.my_instance_port.id
+       }
      }
