@@ -2,6 +2,14 @@
 Usage
 =====
 
+Appliances
+==========
+
+.. toctree::
+   :maxdepth: 2
+
+   usage/rancheros
+
 Config management
 =================
 
