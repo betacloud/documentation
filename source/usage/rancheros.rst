@@ -14,9 +14,11 @@ Preparations
 Create a ``clouds.yaml`` and ``secure.yaml`` file (see :ref:`Authentication` chapter).
 
 
-Cloud-init
-==========
-Cloud-init is the industry standard multi-distribution method for cross-platform cloud instance initialization. Cloud-init will identify the cloud it is running on during boot, read any provided metadata from the cloud and initialize the system accordingly. This may involve setting up the network and storage devices to configuring SSH access key and many other aspects of a system. Later on the cloud-init will also parse and process any optional user or vendor data that was passed to the instance.
+Cloud-config
+============
+Cloud-config is a declarative configuration file format supported by many Linux distributions and is the primary configuration mechanism for ``RancherOS``. A Linux OS supporting cloud-config will invoke a cloud-init process during startup to parse the cloud-config file and configure the operating system. ``RancherOS`` runs its own cloud-init process in a system container. The cloud-init process will attempt to retrieve a cloud-config file from a variety of data sources. Once cloud-init obtains a cloud-config file, it configures the Linux OS according to the content of the cloud-config file.
+
+* https://rancher.com/docs/os/v1.x/en/installation/configuration/#cloud-config
 
 * https://cloudinit.readthedocs.io/en/latest/
 
