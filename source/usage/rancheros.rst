@@ -14,7 +14,7 @@ Cloud-init
 ==========
 * Create a ``rancher.txt`` file and define the ``hostname``, ``etc hosts`` and ``authorized keys`` modules (https://cloudinit.readthedocs.io/en/latest/topics/modules.html).
 
-  .. code-block:: none
+  .. code-block:: console
      #cloud-config
 
      hostname: testinstance
