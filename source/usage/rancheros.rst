@@ -9,6 +9,10 @@ RancherOS
 
 RancherOS, a lightweight, secure Linux distribution, built from containers to run containers well.
 
+Preparations
+============
+Create a ``clouds.yaml`` and ``secure.yaml`` file (see :ref:`Authentication` chapter).
+
 
 Cloud-init
 ==========
