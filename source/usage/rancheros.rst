@@ -44,6 +44,8 @@ Examples
        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDoI70hvzGAiwxUqQQIfypVCSUxfx0zFZKgzBUkjIznUeDl6+rSwUtphS.....
 
 
+* Execute the ``openstack server create`` command:
+
   .. code-block:: none
 
      openstack server create --config-drive true --image "RancherOS 1.5.4" --flavor 2C-4GB-40GB --nic net-id=55bd2e08-428d-484b-9ac3-8ce5882e1c68 --security-group linux --max 1 --user-data /home/user/rancher.txt testinstance
