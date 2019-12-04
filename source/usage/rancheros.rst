@@ -30,8 +30,8 @@ If we change the settings from the ``RancherOS``, we need to enable the config d
 
 Examples
 ========
-* Create a ``rancher.txt`` file and define the ``hostname``, ``etc hosts`` and ``ssh authorized keys`` (https://cloudinit.readthedocs.io/en/latest/topics/modules.html). Try somthing like this:
-
+* Create a ``rancher.txt`` file and define the ``hostname``, ``etc hosts`` and ``ssh authorized keys``. Try somthing like this:
+  
   .. code-block:: none
 
      #cloud-config
