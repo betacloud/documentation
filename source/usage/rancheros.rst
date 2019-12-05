@@ -16,29 +16,30 @@ Create a ``clouds.yaml`` and ``secure.yaml`` file (see :ref:`Authentication` cha
 
 Cloud-config
 ============
-Cloud-config is a declarative configuration file format supported by many Linux distributions and is the primary configuration mechanism for ``RancherOS``. A Linux OS supporting cloud-config will invoke a cloud-init process during startup to parse the cloud-config file and configure the operating system. ``RancherOS`` runs its own cloud-init process in a system container. The cloud-init process will attempt to retrieve a cloud-config file from a variety of data sources. Once cloud-init obtains a cloud-config file, it configures the Linux OS according to the content of the cloud-config file.
+With cloud-init instances can be configured at boot-time. Arbitrary scripts and configuration settings can be passed as user-data via the meta-data service.
+
+* Configuration settings start with the header ``#cloud-config``
 
 * https://rancher.com/docs/os/v1.x/en/installation/configuration/#cloud-config
-
 * https://cloudinit.readthedocs.io/en/latest/
-
 * https://cloudinit.readthedocs.io/en/latest/topics/modules.html
 
 
-Openstack Config drive
-======================
+Openstack configuration drive
+=============================
 If we change the settings from the ``RancherOS``, we need to enable the config drive parameter. Pass ``--config-drive`` to the ``openstack server create`` command (https://docs.openstack.org/nova/queens/user/config-drive.html).
 
-  .. code-block:: none
+  .. code-block:: console
      
      openstack server create --config-drive true ....
 
 
 Examples
 ========
+
 * Create a ``rancher.txt`` file and define the ``hostname``, ``etc hosts`` and ``ssh authorized keys``. Try somthing like this:
   
-  .. code-block:: none
+  .. code-block:: yaml
 
      #cloud-config
 
@@ -52,6 +53,12 @@ Examples
 
 * Execute the ``openstack server create`` command:
 
-  .. code-block:: none
+  .. code-block:: console
 
-     openstack server create --config-drive true --image "RancherOS 1.5.4" --flavor 2C-4GB-40GB --nic net-id=55bd2e08-428d-484b-9ac3-8ce5882e1c68 --security-group linux --max 1 --user-data /home/user/rancher.txt testinstance
+     openstack server create \
+         --config-drive true \
+         --image "RancherOS 1.5.4" \
+         --flavor 2C-4GB-40GB \
+         --nic net-id=55bd2e08-428d-484b-9ac3-8ce5882e1c68 \ 
+         --security-group linux \
+         --max 1 --user-data /home/user/rancher.txt testinstance
