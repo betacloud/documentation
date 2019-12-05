@@ -27,7 +27,7 @@ Configuration settings start with the header ``#cloud-config``
 
 Openstack configuration drive
 =============================
-If we change the settings from the ``RancherOS``, we need to enable the config drive parameter. Pass ``--config-drive`` to the ``openstack server create`` command (https://docs.openstack.org/nova/train/user/metadata.html#using-the-config-drive).
+If we change the settings from the ``RancherOS``, we need to enable the config drive parameter. Pass ``--config-drive`` to the ``openstack server create`` command (https://docs.openstack.org/nova/latest/user/metadata.html#using-the-config-drive).
 
   .. code-block:: console
      
