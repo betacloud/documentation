@@ -18,7 +18,7 @@ Cloud-config
 ============
 With cloud-init instances can be configured at boot-time. Arbitrary scripts and configuration settings can be passed as user-data via the meta-data service.
 
-* Configuration settings start with the header ``#cloud-config``
+Configuration settings start with the header ``#cloud-config``
 
 * https://rancher.com/docs/os/v1.x/en/installation/configuration/#cloud-config
 * https://cloudinit.readthedocs.io/en/latest/
