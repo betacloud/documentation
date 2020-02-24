@@ -21,7 +21,7 @@ Provider
      provider "openstack" {
        user_name   = "USERNAME"
        password    = "PASSWORD"
-       auth_url    = "https://api-1.betacloud.io:5000/v3"
+       auth_url    = "https://api-1.betacloud.de:5000/v3"
        region      = "betacloud-1"
      }
 

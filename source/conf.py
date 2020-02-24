@@ -20,7 +20,7 @@ html_show_copyright = True
 htmlhelp_basename = 'documentation'
 html_theme_options = {
     'display_version': False,
-    'canonical_url': 'https://docs.betacloud.io/',
+    'canonical_url': 'https://docs.betacloud.de/',
     'style_external_links': True,
     'logo_only': True,
     'prev_next_buttons_location': None

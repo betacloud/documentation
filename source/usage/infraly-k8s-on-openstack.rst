@@ -34,7 +34,7 @@ Preparations
      export OS_PROJECT_NAME=PROJECTNAME
      export OS_USERNAME=USERNAME
      export OS_PASSWORD=PASSWORD
-     export OS_AUTH_URL=https://api-1.betacloud.io:5000/v3
+     export OS_AUTH_URL=https://api-1.betacloud.de:5000/v3
      export OS_IDENTITY_API_VERSION=3
      export OS_IMAGE_API_VERSION=2
 

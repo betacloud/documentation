@@ -47,14 +47,6 @@ image, with the ``os_distro`` property set to ``fedora-atomic``.
    For additional parameters have a look at the Magnum user documentation:
    https://docs.openstack.org/magnum/latest/user/#kubernetes
 
-.. note::
-
-   To avoid problems with the Docker Hub, a Docker Registry Cache provided in the Betacloud can be used.
-
-   .. code-block:: console
-
-      --labels [...],container_infra_prefix=registry-1.betacloud.io/openstackmagnum/
-
 Create a cluster
 ================
 

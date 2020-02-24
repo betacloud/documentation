@@ -8,11 +8,11 @@ Service Manager (OSISM), for our customers.
 We use the Betacloud ourselves to provide lab and testbed projects as well as
 the continuous integration (CI) of our Ansible roles and Docker images.
 
-Further details about Betacloud can be found on https://betacloud.io.
+Further details about Betacloud can be found on https://betacloud.de.
 
 OSISM is an Ansible & Docker based deployment framework for managing OpenStack,
 Ceph, and necessary services like RabbitMQ. Further details about OSISM can be
-found on https://osism.io.
+found on https://osism.de.
 
 Betacloud uses OpenStack Rocky with Ceph Luminous.
 

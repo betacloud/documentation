@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/betacloud/documentation.svg?branch=master)](https://travis-ci.org/betacloud/documentation)
 
-Published at https://docs.betacloud.io.
+Published at https://docs.betacloud.de.
 
 ## Install dependencies for building documentation
 

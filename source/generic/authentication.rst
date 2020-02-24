@@ -91,7 +91,7 @@ Alternatively, this file can be used. No vendor profile is used here.
      clouds:
        betacloud:
          auth:
-           auth_url: https://api-1.betacloud.io:5000/v3
+           auth_url: https://api-1.betacloud.de:5000/v3
            username: USERNAME
            project_name: PROJECT
            project_domain_name: default
@@ -133,7 +133,7 @@ Below is an example ``clouds.yaml`` with authentication using a token.
       betacloud-token:
         auth_type: token
         auth:
-          auth_url: https://api-1.betacloud.io:5000/v3
+          auth_url: https://api-1.betacloud.de:5000/v3
           preoject_id: ID
           project_name: PROJECT
           token: TOKEN
@@ -160,7 +160,7 @@ Below is a ``openrc`` example file to access project PROJECT with user USERNAME.
    export OS_PROJECT_NAME=PROJECT
    export OS_USERNAME=USERNAME
    export OS_PASSWORD=PASWORD
-   export OS_AUTH_URL=https://api-1.betacloud.io:5000/v3
+   export OS_AUTH_URL=https://api-1.betacloud.de:5000/v3
    export OS_IDENTITY_API_VERSION=3
    export OS_VOLUME_API_VERSION=3
 
