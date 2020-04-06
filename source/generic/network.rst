@@ -20,3 +20,14 @@ make them available on the local host:
 .. code-block:: console
 
    $ sshuttle -e 'ssh -i id_rsa.sample' -r ubuntu@BASTION_ADDRESS FIRST_CIDR SECOND_CIDR ...
+
+
+Not usable IP ranges
+====================
+
+Not every network can be used by your deployment. Some are used by the inftrastructure and can
+interfere with your network.
+
+Here a list of not usable IP-ranges:
+
+- 172.17.0.1/16
