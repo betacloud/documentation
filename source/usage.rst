@@ -68,5 +68,6 @@ Other
 .. toctree::
    :maxdepth: 2
 
+   usage/libguestfs
    usage/packer
    usage/vagrant
