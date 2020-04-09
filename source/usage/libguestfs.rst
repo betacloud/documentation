@@ -174,3 +174,43 @@ xfs
        lazy refcounts: false
        refcount bits: 16
        corrupt: false
+
+Boot stuck at "grub"
+====================
+
+* http://manpages.ubuntu.com/manpages/cosmic/man1/guestfs-recipes.1.html
+
+.. code-block:: console
+
+   $ sudo apt-get install -y syslinux
+
+.. code-block:: none
+   :caption: syslinux.cfg
+
+   DEFAULT linux
+   LABEL linux
+     SAY Booting the kernel
+     KERNEL /boot/vmlinuz
+     INITRD /boot/initrd
+     APPEND ro root=/dev/sda2
+
+.. code-block:: console
+
+   $ sudo guestfish -a target.img
+
+   Welcome to guestfish, the guest filesystem shell for
+   editing virtual machine filesystems and disk images.
+
+   Type: 'help' for help on commands
+	 'man' to read the manual
+	 'quit' to quit the shell
+
+   ><fs> run
+    100% ⟦▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒⟧ 00:00
+   ><fs> mount /dev/sda2 /
+   ><fs> upload /usr/lib/SYSLINUX/mbr.bin /boot/mbr.bin
+   ><fs> upload syslinux.cfg /boot/syslinux.cfg
+   ><fs> copy-file-to-device /boot/mbr.bin /dev/sda
+   ><fs> extlinux /boot
+   ><fs> part-set-bootable /dev/sda 2 true
+   ><fs> umount /
