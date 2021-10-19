@@ -19,6 +19,7 @@ Betacloud uses OpenStack Rocky with Ceph Luminous.
 .. toctree::
    :maxdepth: 3
 
+   cloud-guideline
    generic
    services
    usage
