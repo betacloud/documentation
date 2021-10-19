@@ -1,12 +1,12 @@
 def setup(app):
-    app.add_stylesheet('css/custom.css')
+    app.add_css_file('css/custom.css')
 
 extensions = ['sphinxcontrib.blockdiag', 'sphinxcontrib.nwdiag', 'sphinx.ext.todo', 'sphinx_fontawesome']
 source_suffix = '.rst'
 master_doc = 'index'
 project = u'Betacloud'
-copyright = u'2017-2020, Betacloud Solutions GmbH'
-author = u'Betacloud Solutions GmbH'
+copyright = u'2017-2020, OSISM GmbH'
+author = u'OSISM GmbH'
 version = u''
 release = u''
 language = 'en'
@@ -20,7 +20,7 @@ html_show_copyright = True
 htmlhelp_basename = 'documentation'
 html_theme_options = {
     'display_version': False,
-    'canonical_url': 'https://docs.betacloud.de/',
+    'canonical_url': 'https://docs.osism.tech/',
     'style_external_links': True,
     'logo_only': True,
     'prev_next_buttons_location': None
