@@ -14,13 +14,13 @@ Like instances you can click behind your volumes in the volumelist on the arrow 
     :align: left
     :width: 100%
 
-* extend volume: resize the volume. If you need more space.
-* Manage Attechments: If you create a new volume it is by default without a VM. If you want to concatenate a volume with a instance you can do it here.
-* Create Snapshot: Snapshots are needed to reuse them later. This we will described in detail later.
-* Create Backup: That isn't a supported feature from Betacloud at this time.
-* Change Volume Type: Here you can change the volume type.
-* Upload to Image: You can upload a volume to use it later as an image, like snapshots.
-* Create Transfer: With Create Transfer you can move one Volume to another Project.
-* Delete Volume: Be careful! If you forget to safe the data on this volume it will be deleted permanently. If you don't have a backup the data is lost.
-* Update Metadata: In this section you have many metadata that you can install by the console.
+* :guilabel:`extend volume`: resize the volume. If you need more space.
+* :guilabel:`Manage Attechments`: If you create a new volume it is by default without a VM. If you want to concatenate a volume with a instance you can do it here.
+* :guilabel:`Create Snapshot`: Snapshots are needed to reuse them later. This we will described in detail later.
+* :guilabel:`Create Backup`: That isn't a supported feature from Betacloud at this time.
+* :guilabel:`Change Volume Type`: Here you can change the volume type.
+* :guilabel:`Upload to Image`: You can upload a volume to use it later as an image, like snapshots.
+* :guilabel:`Create Transfer`: With Create Transfer you can move one Volume to another Project.
+* :guilabel:`Delete Volume`: Be careful! If you forget to safe the data on this volume it will be deleted permanently. If you don't have a backup the data is lost.
+* :guilabel:`Update Metadata`: In this section you have many metadata that you can install by the console.
 

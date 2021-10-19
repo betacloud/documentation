@@ -12,11 +12,11 @@ All this and some more you can do in the Instance section by clicking on the arr
 
 If you click on the Name from the instance, you will get a lot of options:
 
-    * Get detailed informations about your instance in ``Overview``.
-    * Get information about your interfaces and you can edit the Security Groups in ``Interfaces``.
-    * Look up the logs in ``Log``.
-    * Have a console to work on the Interface with ``Console``.
-    * Get a Log about the actions which are done, like create, start or stop in ``Action Log``.
+    * Get detailed informations about your instance in :guilabel:`Overview`.
+    * Get information about your interfaces and you can edit the Security Groups in :guilabel:`Interfaces`.
+    * Look up the logs in :guilabel:`Log`.
+    * Have a console to work on the Interface with :guilabel:`Console`.
+    * Get a Log about the actions which are done, like create, start or stop in :guilabel:`Action Log`.
 
 .. figure:: ../../images/manage-instances-2.png
     :name: fig-manage-instances-2

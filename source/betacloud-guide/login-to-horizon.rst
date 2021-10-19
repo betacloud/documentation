@@ -1,16 +1,12 @@
-===============
-Link to Horizon
-===============
-
-https://horizon.betacloud.de/auth/login
-
 ================
 Login to Horizon
 ================
 
+https://horizon.betacloud.de/auth/login
+
 If you follow the link above you will see this window:
 
-.. figure:: images/loginbetacloud.png
+.. figure:: ../images/loginbetacloud.png
     :name: fig-loginbetacloud
     :align: left
     :width: 100%

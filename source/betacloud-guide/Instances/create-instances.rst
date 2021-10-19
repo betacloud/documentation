@@ -3,14 +3,14 @@ How to create Instances
 =======================
 
 At first click on the right side on Instances.
-After this click on the instances screen on the upper right on "Launch Instances".
+After this click on the instances screen on the upper right on :guilabel:`Launch Instances`.
 You will get the following screen:
 
 --------
 Details:
 --------
 
-    - Instance Name: "Name of the Instance"
+    - Instance Name: Name of the Instance.
     - Description: A short describtion from the Instance, so you can better differentiate the Instances.
     - Availability Zone: per default is choosen Any availability Zone. If you want a special one choose one of them are given.
     - Count: Means how many Instances you want to create.
@@ -124,9 +124,9 @@ It should be listed now:
 After setting up you can manage your instances by clicking on each instance on the name. Or you click on the arrow behind the instance.
 If you click on the Name from the instance, you will get a lot of options:
 
-    * Get detailed information about your instance in ``Overview``.
-    * Get information about your interfaces and you can edit the Security Groups in ``Interfaces``.
-    * Look up at the logs in ``Log``.
-    * Have a console to work on the Interface with ``Console``.
-    * Get an Log about the actions which are done, like create, start or stop in ``Action Log``.
+    * Get detailed information about your instance in :guilabel:`Overview`.
+    * Get information about your interfaces and you can edit the Security Groups in :guilabel:`Interfaces`.
+    * Look up at the logs in :guilabel:`Log`.
+    * Have a console to work on the Interface with :guilabel:`Console`.
+    * Get an Log about the actions which are done, like create, start or stop in :guilabel:`Action Log`.
     

@@ -7,7 +7,7 @@ For every ingress traffic you have to declare rules. Because it is time and work
 you can declare secrurity groups with all rules they should have. Best practise is: open only what you really need.
 For creating security groups do the following steps:
 
-* Click on the left side on ``Security Groups``.
+* Click on the left side on :guilabel:`Security Groups`.
 
 .. figure:: ../images/create-security-groups-1.png
     :name: fig-create-security-groups-1
@@ -18,7 +18,7 @@ For creating security groups do the following steps:
 
 * Give the security group a name and a description.
 
-* Confirm with ``Create Security Group```
+* Confirm with :guilabel:`Create Security Group`
 
 After this steps you will automatically be forwarded to this screen:
 
@@ -43,15 +43,15 @@ How to do:
     :align: left
     :width: 100%
 
-* Now choose in the Rule dropdown-menu ``SSH`` and describe the rule.
-* You can configure the ``CIDR``, which means the range off ip addresses which can connect to your instance.
+* Now choose in the Rule dropdown-menu :guilabel:`SSH` and describe the rule.
+* You can configure the :guilabel:`CIDR`, which means the range off ip addresses which can connect to your instance.
 
 .. figure:: ../images/create-security-groups-4.png
     :name: fig-create-security-groups-4
     :align: left
     :width: 100%
 
-* After that don't forget to press ``Add`` for adding the rule.
+* After that don't forget to press :guilabel:`Add` for adding the rule.
 
 Now the list should look like this:
 
@@ -69,9 +69,9 @@ Because all ingress traffic is forbidden by default ping dosen't work, too.
 So you have to allow this first with creating a new rule like this:
 
 * Like before click on add rule.
-* For this rule choose in the dropdown-menu the point ``Custom ICMP Rule`` and describe it.
+* For this rule choose in the dropdown-menu the point :guilabel:`Custom ICMP Rule` and describe it.
 * The Direction means the incoming (Ingress) or outgoing (Egress) traffic. In this example we need Ingress.
-* In the fields ``Type`` and ``Code`` type -1. This allows access to all codes and all types of ICMP traffic.
+* In the fields :guilabel:`Type` and :guilabel:`Code` type -1. This allows access to all codes and all types of ICMP traffic.
 
 .. figure:: ../images/create-security-groups-6.png
     :name: fig-create-security-groups-6

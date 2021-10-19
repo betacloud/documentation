@@ -4,8 +4,8 @@ Create Volumes
 
 This sectrion will explain how to create volumes.
 
-* First click on the left side on ``Volumes``.
-* After this click on ``Create Volume``.
+* First click on the left side on :guilabel:`Volumes`.
+* After this click on :guilabel:`Create Volume`.
 
 .. figure:: ../../images/create-volumes-1.png
     :name: fig-create-volumes-1

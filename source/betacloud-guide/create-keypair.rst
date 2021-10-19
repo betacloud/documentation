@@ -28,7 +28,7 @@ Dont forgett to set the rights.
     chmod 600 "file".pem
 
 Now you have to create a rule that you can connect to the instance from remote.
-How to do this will be explained in the section ``create security groups``.
+How to do this will be explained in the section :guilabel:`Create Security Groups`.
 
 =============================
 How to import and store a Key
@@ -74,4 +74,4 @@ After this press the button for searching file:
 
 Search the file in your downloadfolder and take it.
 Again to finish this step click on Import Public Key.
-You have to create a rule for using SSH connections. How to do this will be described in the section ``create security groups``.
+You have to create a rule for using SSH connections. How to do this will be described in the section :guilabel:`Create Security Groups`.

@@ -4,8 +4,8 @@ Snapshots
 
 It is always the best practise to safe important data in more than one way. If your instances or volumes crash, your data might be lost.
 If you have important data that can't be rebuild fast and easy it is best practise to use snapshots or backups.
-``Snapshots`` are a snapshot from the whole Volume at the point of creating.
-``Backups`` are a copy from data that is defiend.
+:guilabel:`Snapshots` are a snapshot from the whole Volume at the point of creating.
+:guilabel:`Backups` are a copy from data that is defiend.
 
 --------
 Snapshot
